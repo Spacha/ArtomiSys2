@@ -2,7 +2,7 @@
 
 namespace ArtomiSys\Libs;
 
-abstract class Model extends Database
+abstract class Model
 {
 	protected $db;
 
@@ -11,6 +11,6 @@ abstract class Model extends Database
 	public function __construct($dbConfig = self::DEFAULT_DB_CONFIG)
 	{
 		// prefer: define('APP_NAME', 'ArtomiSys')
-		$this->db = parent::__construct(ROOT_PATH.'/ArtomiSys/config/'.$dbConfig);
+		$this->db = new Database(ROOT_PATH.'/ArtomiSys/config/'.$dbConfig);
 	}
 }

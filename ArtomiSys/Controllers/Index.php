@@ -1,5 +1,9 @@
 <?php
 
+/**
+* TODO: add ExtendedController to handle logins etc
+*/
+
 namespace ArtomiSys\Controllers;
 
 use ArtomiSys\Libs\Controller;
@@ -12,18 +16,16 @@ class Index extends Controller
 
 	public function __construct()
 	{
-		echo "<li><b>Index controller</b>";
-		// TODO: inpermanent solution
 		$this->model = new IndexModel();
 	}
 
 	public function index()
 	{
-		echo "<li>Index page";
+		echo "<li>Index";
 	}
 
 	public function guide()
 	{
-		echo "<li>We are in guide";
+		echo "<li>We are in the guide";
 	}
 }
