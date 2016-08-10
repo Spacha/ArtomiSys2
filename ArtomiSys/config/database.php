@@ -1,9 +1,9 @@
 <?php
 
 return [
-	'dbHost' => 'localhost',
-	'dbName' => 'ArtomiSys2',
-	'dbUser' => 'root',
-	'dbPassword' => '',
-	'dbPrefix' => ''
-]
+	'host' => 'localhost',
+	'name' => 'artomisys',
+	'user' => 'root',
+	'password' => '',
+	'prefix' => ''
+];

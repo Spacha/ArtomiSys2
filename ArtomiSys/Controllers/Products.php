@@ -2,22 +2,41 @@
 
 namespace ArtomiSys\Controllers;
 
+use ArtomiSys\Models\ProductsModel;
 use ArtomiSys\Libs\Controller;
 
-class Index extends Controller
+class Products extends Controller
 {
+	private $model;
+
 	public function __construct()
 	{
-		echo "<li><b>Index controller</b>";
+		parent::__construct();
+		$this->model = new ProductsModel();
 	}
 
 	public function index()
 	{
-		echo "<li>Index page";
+		// view product list
 	}
 
-	public function guide()
+	public function view($id)
 	{
-		echo "<li>We are in guide";
+		print_r($this->model->fetchPostData($id));
+	}
+
+	public function create()
+	{
+
+	}
+
+	public function edit($id)
+	{
+
+	}
+
+	public function delete($id)
+	{
+
 	}
 }
