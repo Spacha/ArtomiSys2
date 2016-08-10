@@ -2,12 +2,15 @@
 
 namespace ArtomiSys\Libs;
 
-use PDO;
-
-class Model extends PDO
+abstract class Model extends Database
 {
-	public function __construct()
+	protected $db;
+
+	const DEFAULT_DB_CONFIG = 'database.php';
+
+	public function __construct($dbConfig = self::DEFAULT_DB_CONFIG)
 	{
-		echo "<li>Main Model constructed.";
+		// prefer: define('APP_NAME', 'ArtomiSys')
+		$this->db = parent::__construct(ROOT_PATH.'/ArtomiSys/config/'.$dbConfig);
 	}
 }

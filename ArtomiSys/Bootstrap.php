@@ -14,9 +14,11 @@ spl_autoload_register(function($className) {
 });
 
 // Exceptions
+/*
 set_exception_handler(function(Exception $e) {
 	die('<b>Error! </b>' . $e->getMessage());
 });
+*/
 
 // Url handling
 $url = !empty($_GET["url"]) ? $_GET["url"] : null;
