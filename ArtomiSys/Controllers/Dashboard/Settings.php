@@ -1,6 +1,6 @@
 <?php
 
-namespace ArtomiSys\Controllers;
+namespace ArtomiSys\Controllers\Dashboard;
 
 use ArtomiSys\Libs\Controller;
 

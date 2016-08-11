@@ -1,6 +1,6 @@
 <?php
 
-namespace ArtomiSys\Models;
+namespace ArtomiSys\Models\Dashboard;
 
 use ArtomiSys\Libs\Model;
 
