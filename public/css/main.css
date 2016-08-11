@@ -1,0 +1,24 @@
+html, body {
+	margin: 0;
+	background: #EEEEAA;
+}
+
+/* GLOBALS */
+
+/* CLASSES */
+
+/* IDENTIFIERS */
+
+#header {
+	background: #AAA;
+	padding: 6px;
+}
+#header a {
+	color: #FFF;
+	text-decoration: none;
+}
+#header a.active {
+	text-decoration: underline;
+}
+
+/* PAGE SPECIFIC */
