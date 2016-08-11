@@ -3,20 +3,25 @@
 use ArtomiSys\Libs\Router;
 
 // Define root path
-define('ROOT_PATH', dirname(__DIR__));
+define('PATH_ROOT', dirname(__DIR__));
+
+// include main config file
+require(PATH_ROOT . '/ArtomiSys/config/config.php');
 
 // Autoload classes
 spl_autoload_register(function($className) {
 	$className = str_replace('\\', DIRECTORY_SEPARATOR, $className);
-	if (is_file(ROOT_PATH . '/' . $className . '.php')) {
-        require(ROOT_PATH . '/' . $className . '.php');
+	if (is_file(PATH_ROOT . '/' . $className . '.php')) {
+        require(PATH_ROOT . '/' . $className . '.php');
     }
 });
 
 // Exceptions
+
 /*
-set_exception_handler(function(Exception $e) {
-	die('<b>Error! </b>' . $e->getMessage());
+set_exception_handler(function($e) {
+	die('<p><b>Error! </b>' . $e->getMessage() . '</p>' .
+		'<p>Please contact support.</p>');
 });
 */
 
@@ -28,9 +33,13 @@ $route = $router->getRoute();
 // Finally call a proper method
 if (class_exists($route['controller'])) {
 	$controller = new $route['controller']();
-	call_user_func_array([$controller, $route['action']], $route['paramArr']);
-}
 
-if (!isset($controller)) {
-	throw new \Exception("Error Processing Request", 1);
+	// TODO: if method doesn't exist, call default
+	if (!method_exists($controller, $route['action'])) {
+		throw new \Exception('Tried to call inexisting method \''. $route['action'] .'\'.');
+	}
+
+	call_user_func_array([$controller, $route['action']], $route['paramArr']);
+} else {
+	throw new \Exception('Tried to call inexisting controller \''. $route['controller'] .'\'.');
 }
