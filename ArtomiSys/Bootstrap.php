@@ -8,6 +8,9 @@ define('PATH_ROOT', dirname(__DIR__));
 // include main config file
 require(PATH_ROOT . '/ArtomiSys/config/config.php');
 
+// set the timezone
+date_default_timezone_set(DATE_DEFAULT_TIMEZONE);
+
 // Autoload classes
 spl_autoload_register(function($className) {
 	$className = str_replace('\\', DIRECTORY_SEPARATOR, $className);
