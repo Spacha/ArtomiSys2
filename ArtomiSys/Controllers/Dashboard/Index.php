@@ -2,8 +2,10 @@
 
 /**
 * TODO: add ExtendedController to handle logins etc.
-* TOTO: Maybe we should have DashboardController which would take care of things like
+* TODO: Maybe we should have DashboardController which would take care of things like
 * automatic snippets, title skeleton etc.
+* TODO: Add images
+* TODO: Some kind of system for internal routing maybe?
 */
 
 namespace ArtomiSys\Controllers\Dashboard;
@@ -26,6 +28,8 @@ class Index extends Controller
 	// this is a custom index (defined in 'config/routes.php')
 	public function home()
 	{
+		$this->view->stats = $this->model->getStats();
+
 		$this->view->title = APP_NAME . ' &ndash; Dashboard';
 		$this->view->active = 'index';
 		$this->view->snippets['header'] = 'dashboard/header';
