@@ -1,24 +1,165 @@
-html, body {
-	margin: 0;
-	background: #EEEEAA;
-}
-
 /* GLOBALS */
 
+html, body {
+	margin: 0;
+	background: #EEE;
+	height: 100%;
+
+	font-family: 'Trebuchet MS', Helvetica;
+}
+
+a {
+	text-decoration: none;
+}
+
 /* CLASSES */
+
+.wrapper {
+	width: 1000px;
+	max-width: 95%;
+	margin: auto;
+}
+
+ul.top-nav {
+	margin: 0;
+}
+ul.top-nav li {
+	list-style-type: none;
+	display: inline-block;
+}
+ul.top-nav li a {
+	padding: 1em;
+	color: #FFF;
+	font-weight: bold;
+	position: relative;
+	display: inline-block;
+}
+ul.top-nav li a:hover {
+	color: #222;
+}
+ul.top-nav li a.active {
+	color: #222;
+}
+
+ul.top-nav li a.active:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 9px solid #EEE;
+    margin: -9px 0 0 -9px;
+}
+
+.header-count {
+	color: #FF211A;
+}
+
+.hotbar {
+	float: right;
+}
+
+.block {
+	background: #FFF;
+	border: 1px solid #999;
+	box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+	margin: 4px 0;
+	padding: 8px;
+}
+
+/* BUTTONS */
+
+.btn {
+	background-color: #FF6961;
+	font-size: 0.5em;
+	padding: 8px;
+	margin: 4px;
+	color: #FFF;
+	border: 1px solid #FF3931;
+	border-radius: 4px;
+	display: inline-block;
+}
+.btn:hover {
+	background-color: #FF554E;
+	border-color: #FF211A;
+}
+.icon {
+	background-repeat: no-repeat;
+	background-size: 22px;
+	padding-left: 38px;
+	background-position: 8px center;
+}
+
+.icon-plus {
+	background-image: url('public/img/icons/plus.png');
+}
+.icon-edit {
+	background-image: url('public/img/icons/edit.png');
+}
+.icon-delete {
+	background-image: url('public/img/icons/delete.png');
+}
 
 /* IDENTIFIERS */
 
 #header {
-	background: #AAA;
-	padding: 6px;
-}
-#header a {
-	color: #FFF;
-	text-decoration: none;
-}
-#header a.active {
-	text-decoration: underline;
+	background: #FF6961;
+	box-shadow: inset 0 -1px 8px rgba(0,0,0,0.2);
+	/*border-bottom: 2px solid #FF3931;*/
 }
 
 /* PAGE SPECIFIC */
+
+/* TABLES */
+
+table.list {
+	border-collapse: collapse;
+	width: 100%;
+	border: 1px solid #999;
+	box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+	color: #000;
+}
+table.list th {
+	background: linear-gradient(#CCC4BB, #bdb4a8);
+	padding: 10px;
+	text-align: left;
+}
+table.list tr {
+	border-bottom: 1px solid #999;
+	background: #FFF;
+}
+table.list td {
+	padding: 8px;
+}
+table.list tr:hover {
+	background: #F4F4F4;
+}
+
+table.hor-list {
+	border-collapse: collapse;
+	width: 100%;
+	border: 1px solid #999;
+	box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+table.hor-list tr {
+	border-bottom: 1px solid #999;
+	background: #FFF;
+}
+table.hor-list td {
+	padding: 8px;
+}
+table.hor-list td:first-child {
+	background: #CCC4BB;
+	border-right: 1px solid #999;
+	width: 30%;
+}
+
+table.list a {
+	color: #0099E6;
+}
+table.list a:hover {
+	text-decoration: underline;
+}

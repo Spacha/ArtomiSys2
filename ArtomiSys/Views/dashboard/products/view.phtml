@@ -1,0 +1,23 @@
+<h1 style="display: inline-block; width: 100%;">
+<span style="font-size: 80%;"><?=$this->product['title'];?></span>
+	<span class="hotbar">
+		<a href="/ArtomiSys2/dashboard/products/edit/<?=$this->product['id'];?>" class="btn icon icon-edit">Muokkaa</a>
+		<a href="/ArtomiSys2/dashboard/products/delete/<?=$this->product['id'];?>" class="btn icon icon-delete">Poista</a>
+	</span>
+</h1>
+
+<i>Images will be here...</i>
+
+<table class="hor-list">
+<tr>
+<td><b>ID: </b></td>
+<td><?=$this->product['id'];?></td></tr><tr>
+<td><b>Katselukertoja: </b></td>
+<td>ei saatavilla</td></tr>
+</table>
+<div class="block">
+
+<p><strong>Kuvaus:</strong></p>
+<?=nl2br($this->product['content']);?>
+
+</div>

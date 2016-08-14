@@ -1,3 +1,15 @@
-<h1>Dashboard</h1>
+<h1>Hallintapaneeli</h1>
 
-<i>Here you will see some statistics and maybe some tips or something.</i>
+<div class="block">
+	<h2>Tervetuloa admin!</h2>
+    <p>Tervetuloa ArtomiSysiin. Tätä kautta pystyt hallitsemaan tuotekatalogia helposti ja nopeasti. ArtomiSys on suunniteltu käytettäväksi pääosin tietokoneella, mutta päivitys onnistuu myös tabletti- ja mobiililaitteilla. <i>Muista kirjautua ulos päivityksen jälkeen turvallisuuden takaamiseksi.</i></p>
+    <p>Lisää ohjeita voit lukea <a href="/ArtomiSys2/dashboard/index/help">täältä</a>. Ongelmatapauksissa ota yhteyttä sähköpostilla osoitteeseen: <i>miikasikala96@gmail.com</i> tai puhelimitse numeroon: 045 624 0118.</p>
+</div>
+
+<table class="hor-list">
+<tr>
+<td><b>Tuotteita: </b></td>
+<td><?=$this->stats['productsCount'];?></td></tr><tr>
+<td><b>Salasana vaihdettu: </b></td>
+<td><?=$this->stats['passwordChanged'];?></td></tr>
+</table>

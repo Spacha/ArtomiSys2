@@ -1,3 +1,20 @@
-<h1>Product list</h1>
+<h1 style="display: inline-block; width: 100%;">
+	Tuotteet <span class="header-count"><?=$this->productsCount;?></span>
+	<span class="hotbar"><a href="/ArtomiSys2/dashboard/products/create" class="btn icon icon-plus">Lisää tuote</a></span>
+</h1>
 
-<i>Here you will see a list of all products.</i>
+<table class="list">
+	<tr><th>#</th><th>Tuotteen nimi</th><th>Luotu</th><th>Työkalut</th></tr>
+
+<?php
+foreach($this->products as $product) {
+	echo "<tr>
+		<td>{$product['id']}</td>
+		<td><a href=\"/ArtomiSys2/dashboard/products/view/{$product['id']}\">{$product['title']}</a></td>
+		<td>{$product['date']}</td>
+		<td><a href=\"/ArtomiSys2/dashboard/products/edit/{$product['id']}\">Muokkaa</a> /
+		<a href=\"/ArtomiSys2/dashboard/products/delete/{$product['id']}\">Poista</a></td>
+		</tr>";
+}
+?>
+</table>
