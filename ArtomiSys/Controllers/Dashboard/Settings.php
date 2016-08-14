@@ -1,5 +1,10 @@
 <?php
 
+/**
+* Change password
+* Set timezone
+*/
+
 namespace ArtomiSys\Controllers\Dashboard;
 
 use ArtomiSys\Libs\Controller;
