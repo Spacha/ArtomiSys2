@@ -42,6 +42,13 @@ class ProductsModel extends Model
 				'date' => date("U"));
 
 			return $this->db->insert('products', $data);
+		} else {
+			$data = [
+				'title' => $title,
+				'content' => $content
+			];
+
+			return $this->db->update('products', $data, 'id = '.$id);
 		}
 	}
 
