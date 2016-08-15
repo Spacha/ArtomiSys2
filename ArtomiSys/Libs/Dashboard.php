@@ -6,16 +6,20 @@ use ArtomiSys\Libs\View;
 
 class Dashboard extends Controller
 {
-	public function __construct()
+	protected $requireLogin = true;
+
+	public function __construct($template = 'default')
 	{
-		$this->view = new View();
+		$this->checkAuth();
+
+		$this->view = new View($template);
 	}
 
 	/**
 	* Takes care of carrying data including title to view
 	* Includes header snippet and sets active label
 	*/
-	public function runPage($path, array $data)
+	public function runPage($path, array $data, $header = true)
 	{
 		$tmp = explode('/', $path);
 		$section = $tmp[0];
@@ -27,9 +31,32 @@ class Dashboard extends Controller
 			if ($key !== 'title') $this->view->$key = $value;
 		}
 
+		// include header snippet
+		if ($header) {
+			$this->view->active = $section;
+			$this->view->snippets['header'] = 'dashboard/header';
+		}
+
 		$this->view->title = APP_NAME . ' &ndash; '.$title;
-		$this->view->active = $section;
-		$this->view->snippets['header'] = 'dashboard/header';
 		$this->view->render('dashboard/'.$path);
+	}
+
+	private function checkAuth()
+	{
+		$this->startSession();
+
+		if ($this->requireLogin) {
+			if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+				header('location: /ArtomiSys2/dashboard/login');
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	private function startSession(array $options = [])
+	{
+		session_start($options);
 	}
 }

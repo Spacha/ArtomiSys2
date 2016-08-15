@@ -2,14 +2,19 @@
 
 /**
 * TODO: Add images
+* TODO: Add working version info (login screen and others)
+* TODO: Scale too big icons
+* TODO: Return button on view page
+* TODO: Style some buttons
+* TODO: Errors! and messages
 * TODO: Some kind of system for internal routing maybe?
+* TODO: Sitemap.xml
 */
 
 namespace ArtomiSys\Controllers\Dashboard;
 
 use ArtomiSys\Models\Dashboard\IndexModel;
 use ArtomiSys\Libs\Dashboard;
-use ArtomiSys\Libs\Controller;
 
 class Index extends Dashboard
 {
@@ -28,6 +33,7 @@ class Index extends Dashboard
 	{
 		$data = [
 			'title' => 'Dashboard',
+			'username' => $_SESSION['username'],
 			'stats' => $this->model->getStats()
 		];
 
