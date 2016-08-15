@@ -1,9 +1,6 @@
 <?php
 
 /**
-* TODO: add ExtendedController to handle logins etc.
-* TODO: Maybe we should have DashboardController which would take care of things like
-* automatic snippets, title skeleton etc.
 * TODO: Add images
 * TODO: Some kind of system for internal routing maybe?
 */
@@ -11,29 +8,30 @@
 namespace ArtomiSys\Controllers\Dashboard;
 
 use ArtomiSys\Models\Dashboard\IndexModel;
+use ArtomiSys\Libs\Dashboard;
 use ArtomiSys\Libs\Controller;
-use ArtomiSys\Libs\View;
 
-class Index extends Controller
+class Index extends Dashboard
 {
 	private $model;
-	private $view;
+	//private $view;
 
 	public function __construct()
 	{
 		$this->model = new IndexModel();
-		$this->view = new View();
+		parent::__construct();
+		//$this->view = new View();
 	}
 
 	// this is a custom index (defined in 'config/routes.php')
 	public function home()
 	{
-		$this->view->stats = $this->model->getStats();
+		$data = [
+			'title' => 'Dashboard',
+			'stats' => $this->model->getStats()
+		];
 
-		$this->view->title = APP_NAME . ' &ndash; Dashboard';
-		$this->view->active = 'index';
-		$this->view->snippets['header'] = 'dashboard/header';
-		$this->view->render('dashboard/index/index');
+		$this->runPage('index/index', $data);
 	}
 
 	public function guide($a = 1, $b = 2, $c = 3)
