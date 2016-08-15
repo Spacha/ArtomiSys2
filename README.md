@@ -5,10 +5,10 @@ Small MVC catalogue and gallery management system
 
 ArtomiSys's file structure the way it is now:
 
-* ArtomiSys
- * Controllers
- * Libs
- * Models
- * Views
- * config
- * Bootstrap.php
+* **ArtomiSys**
+ * **Controllers**
+ * **Libs**
+ * **Models**
+ * **Views**
+ * **config**
+ * **Bootstrap.php**
