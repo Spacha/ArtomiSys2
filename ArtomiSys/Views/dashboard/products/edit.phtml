@@ -2,9 +2,9 @@
 
 <form action="/ArtomiSys2/dashboard/products/edit/<?=$this->product['id'];?>/save" method="post" enctype="multipart/form-data">
 	<p><b>Otsikko: </b></p>
-	<p><input type="text" style="width: 100%; padding: 6px; font-size: 105%;" name="title" value="<?=$this->product['title'];?>"/></p>
+	<p><input type="text" name="title" value="<?=$this->product['title'];?>"/></p>
 	<p><b>Kuvaus: </b></p>
-	<p><textarea name="content" style="width: 100%; height: 300px; padding: 6px; font-size: 105%;"><?=$this->product['content'];?></textarea></p>
+	<p><textarea name="content"><?=$this->product['content'];?></textarea></p>
 	
 	<p><a href="/ArtomiSys2/dashboard/products" class="btn" style="font-size: 100%;">Peruuta</a> <input type="submit" class="btn" style="font-size: 100%;" value="Valmis"/></p>
 </form>
