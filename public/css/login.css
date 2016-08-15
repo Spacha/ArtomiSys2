@@ -1,0 +1,39 @@
+html, body {
+	background-image: radial-gradient(#EEE, #888);
+}
+
+#login_header {
+	text-align: center;
+}
+#login_header img {
+	width: 400px;
+	max-width: 90%;
+	margin: 20px 0;
+}
+#version {
+	font-size: 65%;
+	color: #666;
+	float: right;
+	margin: 3px;
+}
+
+#login {
+	background: #FFF;
+	border: 1px solid #999;
+	padding: 8px;
+	width: 300px;
+	margin: auto;
+	text-align: center;
+	box-shadow: 1px 1px 6px rgba(0,0,0,0.3);
+}
+
+#login input {
+	text-align: center;
+}
+
+#login_footer {
+	font-size: 90%;
+	margin: 20px;
+	color: #888;
+	text-align: center;
+}

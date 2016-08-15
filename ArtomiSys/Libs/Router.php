@@ -48,7 +48,7 @@ class Router
 		// maybe this should be clearified a bit?
 		if (isset($urlParts[$i]) && in_array(ucfirst($urlParts[$i]), $this->subControllers)) {
 			$this->request['controller'] = isset($urlParts[$i]) && isset($urlParts[$i+1])
-				? self::CONTROLLER_NS.ucfirst($urlParts[$i]).'\\'.$urlParts[$i+1]
+				? self::CONTROLLER_NS.ucfirst($urlParts[$i]).'\\'.ucfirst($urlParts[$i+1])
 				: self::CONTROLLER_NS.ucfirst($urlParts[$i]).'\\'.self::DEFAULT_CONTROLLER;
 			$i++;
 		} else {
