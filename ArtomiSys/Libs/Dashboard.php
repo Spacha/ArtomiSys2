@@ -41,6 +41,14 @@ class Dashboard extends Controller
 		$this->view->render('dashboard/'.$path);
 	}
 
+	// rethink about naming and location!!!
+	public function getData(array $data = [])
+	{
+		// DON'T HARDCODE
+		return require(PATH_ROOT .'/ArtomiSys/data/artomisys.php');
+	}
+
+	// for login
 	private function checkAuth()
 	{
 		$this->startSession();

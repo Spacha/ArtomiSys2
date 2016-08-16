@@ -16,7 +16,7 @@ class Login extends Dashboard
 		// login is not required on login page (obviously)
 		// note that we don't use default template!
 		$this->requireLogin = false;
-		parent::__construct('login');
+		parent::__construct('login');	
 	}
 
 	public function login($run = false)
@@ -42,6 +42,7 @@ class Login extends Dashboard
 			// show login form
 			$data = [
 				'title' => 'Kirjaudu sisään',
+				'version' => $this->getData()['app']['version']
 			];
 
 			$this->runPage('login', $data, false);
