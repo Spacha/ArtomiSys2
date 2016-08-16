@@ -2,6 +2,7 @@
 
 /**
 * TODO: Add images
+* TODO: Statistics: when static page loaded: $this->views->add();
 * TODO: Restrict access to ArtomiSys/ folder directly
 * TODO: Add working version info (login screen and others)
 * TODO: Scale too big icons down
