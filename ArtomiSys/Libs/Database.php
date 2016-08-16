@@ -2,7 +2,8 @@
 
 /**
 *
-* TODO: Think about this. Which would be the best method?
+* TODO: rewrite sql (SELECT col1, col3 FROM etc) to reduce traffic
+* 
 */
 
 namespace ArtomiSys\Libs;

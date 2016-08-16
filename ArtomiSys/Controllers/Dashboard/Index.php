@@ -2,13 +2,17 @@
 
 /**
 * TODO: Add images
+* TODO: Restrict access to ArtomiSys/ folder directly
 * TODO: Add working version info (login screen and others)
-* TODO: Scale too big icons
+* TODO: Scale too big icons down
 * TODO: Return button on view page
 * TODO: Style some buttons
 * TODO: Errors! and messages
 * TODO: Some kind of system for internal routing maybe?
 * TODO: Sitemap.xml
+*
+* password_verify(), password_salt()
+* http://www.wikihow.com/Create-a-Secure-Login-Script-in-PHP-and-MySQL
 */
 
 namespace ArtomiSys\Controllers\Dashboard;
@@ -32,7 +36,7 @@ class Index extends Dashboard
 	public function home()
 	{
 		$data = [
-			'title' => 'Dashboard',
+			'title' => 'Hallintapaneeli',
 			'username' => $_SESSION['username'],
 			'stats' => $this->model->getStats()
 		];
