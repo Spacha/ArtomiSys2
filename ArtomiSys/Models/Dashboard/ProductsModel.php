@@ -11,6 +11,12 @@ class ProductsModel extends Model
 		parent::__construct();
 	}
 
+
+	/**
+	* Fetches all products from database
+	* @param order defines in which order products are by date (ascending/descending)
+	* @return associative array of products
+	*/
 	public function fetchAllProducts($order = "DESC")
 	{
 		$sql = "SELECT * FROM products ORDER BY date $order";
@@ -24,6 +30,11 @@ class ProductsModel extends Model
 		return $products;
 	}
 
+	/**
+	* Fetches single products data
+	* @param id of the product
+	* @param return true on success, false on failure
+	*/
 	public function fetchProductData($id)
 	{
 		$sql = "SELECT * FROM products WHERE id = :id LIMIT 1";
@@ -33,25 +44,34 @@ class ProductsModel extends Model
 		return $product;
 	}
 
-	public function saveProduct($title, $content, $id = 0)
+	public function saveProduct($title, $content, array $images = [] , $id = 0)
 	{
+		$imagesStr = implode(', ', $images);
+
 		if ($id == 0) {
 			$data = array(
 				'title' => $title,
 				'content' => $content,
+				'images' => $imagesStr,
 				'date' => date("U"));
 
 			return $this->db->insert('products', $data);
 		} else {
 			$data = [
 				'title' => $title,
-				'content' => $content
+				'content' => $content,
+				'images' => $imagesStr,
 			];
 
 			return $this->db->update('products', $data, 'id = '.$id);
 		}
 	}
 
+
+	/**
+	* Deletes a product from database
+	* @param id of the product
+	*/
 	public function delete($id)
 	{
 		// TODO: remove related images too!
@@ -63,6 +83,10 @@ class ProductsModel extends Model
 		}
 	}
 
+	/**
+	* Get the id which inserted latest to the database
+	* @param return last inserted id
+	*/
 	public function lastId()
 	{
 		return $this->db->lastInsertId();
