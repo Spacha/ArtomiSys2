@@ -1,10 +1,15 @@
-<h1>Luo uusi tuote</h1>
+<h1>Muokkaa tuotetta</h1>
 
 <form action="/ArtomiSys2/dashboard/products/edit/<?=$this->product['id'];?>/save" method="post" enctype="multipart/form-data">
 	<p><b>Otsikko: </b></p>
 	<p><input type="text" name="title" value="<?=$this->product['title'];?>"/></p>
 	<p><b>Kuvaus: </b></p>
 	<p><textarea name="content"><?=$this->product['content'];?></textarea></p>
-	
+
+	<p>
+		<input type="file" name="images[]" id="images" multiple/>
+		<label for="images">Valitse kuvia</label>
+	</p>
+
 	<p><a href="/ArtomiSys2/dashboard/products" class="btn" style="font-size: 100%;">Peruuta</a> <input type="submit" class="btn" style="font-size: 100%;" value="Valmis"/></p>
 </form>

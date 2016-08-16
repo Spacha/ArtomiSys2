@@ -4,8 +4,8 @@ namespace ArtomiSys\Controllers\Dashboard;
 
 use ArtomiSys\Models\Dashboard\ProductsModel;
 use ArtomiSys\Libs\Dashboard;
-use ArtomiSys\Libs\Controller;
 use ArtomiSys\Libs\View;
+use ArtomiSys\Libs\Images;
 
 class Products extends Dashboard
 {
@@ -23,7 +23,7 @@ class Products extends Dashboard
 		$productsCount = count($products);
 
 		$data = [
-			'title' => 'Products',
+			'title' => 'Tuotteet',
 			'products' => $products,
 			'productsCount' => $productsCount
 		];
@@ -39,7 +39,7 @@ class Products extends Dashboard
 
 		$data = [
 			'title' => $product['title'],
-			'product' => $product   
+			'product' => $product
 		];
 
 		$this->runPage('products/view', $data);
@@ -48,7 +48,9 @@ class Products extends Dashboard
 	public function create($save = false)
 	{
 		if (!$save) {
-			$data = ['title' => 'Uusi tuote'];
+			$data = [
+				'title' => 'Uusi tuote'
+			];
 
 			$this->runPage('products/create', $data);
 		} else {
@@ -71,10 +73,15 @@ class Products extends Dashboard
 
 			$this->runPage('products/edit', $data);
 		} else {
-			if ($this->model->saveProduct(htmlspecialchars($_POST['title']), htmlspecialchars($_POST['content']), $id)) {
+			// upload related images
+			$images = new Images();
+			$img_names = $images->upload($_FILES['images'], $id);
+
+			if ($this->model->saveProduct(htmlspecialchars($_POST['title']), htmlspecialchars($_POST['content']), $img_names, $id)) {
 				header('location: /ArtomiSys2/dashboard/products/view/'. $id);
 			} else {
-				header('location: /ArtomiSys2/dashboard/products/edit/'. $id);
+				// TODO: Remove images we just uploaded!
+				header('location: /ArtomiSys2/dashboard/products');
 			}
 		}
 	}
