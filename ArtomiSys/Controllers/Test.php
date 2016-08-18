@@ -11,10 +11,11 @@ class Test extends Controller
 	{
 
 		if (!$run) {
-			require(PATH_ROOT. '/' . PATH_TO_SHEETS .'/test.phtml');
+			//require(PATH_ROOT. '/' . PATH_TO_SHEETS .'/test.phtml');
+
+			echo round(disk_free_space(PATH_ROOT)/1000000, 1).' MB';
 		} else {
-			$images = new Images();
-			$img_names = $images->upload($_FILES['images'], '1441111111');
+			$img_names = Images::upload($_FILES['images']);
 
 			if (!empty($img_names)) {
 				foreach($img_names as $img) {
@@ -35,8 +36,7 @@ class Test extends Controller
 
 	public function delete(array $removables)
 	{
-		$images = new Images();
-		$removed = $images->delete($removables);
+		$removed = Images::delete($removables);
 
 		if (!empty($removed)) {
 			$this->throwMsg(
