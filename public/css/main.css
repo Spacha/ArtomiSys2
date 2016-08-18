@@ -61,6 +61,7 @@ input[type=file]:focus + label {
 }
 
 ul.top-nav {
+	padding-left: 40px;
 	margin: 0;
 	display: inline-block;
 }
@@ -126,6 +127,7 @@ ul.top-nav li a.active:after {
 	border-radius: 4px;
 	display: inline-block;
 	text-decoration: none;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 
 	transition: 0.2s ease-in-out background-color, border-color;
 }
@@ -146,8 +148,21 @@ ul.top-nav li a.active:after {
 .icon-edit {
 	background-image: url('public/img/icons/edit.png');
 }
+.icon-back {
+	background-image: url('public/img/icons/back.png');
+}
 .icon-delete {
 	background-image: url('public/img/icons/delete.png');
+}
+.icon-help {
+	background-image: url('public/img/icons/help.png');
+
+	background-color: #FFF;
+	border-color: #FF6961;
+	color: #FF6961;
+}
+.icon-help:hover {
+	background-color: #F4F4F4;
 }
 
 /* IDENTIFIERS */
@@ -236,4 +251,43 @@ table.list a {
 }
 table.list a:hover {
 	text-decoration: underline;
+}
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 720px) {
+	ul.top-nav {
+		padding: 0;
+		display: block;
+		width: 100%;
+	}
+	ul.top-nav li {
+		text-align: center;
+		display: block;
+		width: 100%;
+	}
+	ul.top-nav li a {
+		width: 100%;
+		box-sizing: border-box;
+	}
+	ul.top-nav li a.active {
+		background: #ff8680;
+	}
+	ul.top-nav li a.active:after {
+		display: none;
+	}
+
+	#log_out {
+		float: none;
+		width: 100%;
+		display: block;
+		text-align: center;
+		background: #FFF;
+	}
+	#log_out a {
+		background: #FFF;
+		border: 0;
+		box-shadow: none;
+		padding: 1em;
+	}
 }

@@ -1,6 +1,9 @@
 <h1 style="display: inline-block; width: 100%;">
 	Tuotteet <span class="header-count"><?=$this->productsCount;?></span>
-	<span class="hotbar"><a href="/ArtomiSys2/dashboard/products/create" class="btn icon icon-plus">Lisää tuote</a></span>
+	<span class="hotbar">
+		<a href="/ArtomiSys2/dashboard/products/create" class="btn icon icon-plus">Lisää tuote</a>
+		<a href="/ArtomiSys2/dashboard/index/guide#products" target="_blank" class="btn icon icon-help">Apua</a>
+	</span>
 </h1>
 
 <?php if(count($this->products)): ?>
