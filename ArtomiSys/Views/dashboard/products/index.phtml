@@ -3,6 +3,8 @@
 	<span class="hotbar"><a href="/ArtomiSys2/dashboard/products/create" class="btn icon icon-plus">Lisää tuote</a></span>
 </h1>
 
+<?php if(count($this->products)): ?>
+
 <table class="list">
 	<tr><th>#</th><th>Tuotteen nimi</th><th>Luotu</th><th>Työkalut</th></tr>
 
@@ -17,4 +19,16 @@ foreach($this->products as $product) {
 		</tr>";
 }
 ?>
+<?php else: ?>
+
+<div style="font-size: 130%; text-align: center; color: #666;">
+	<span style="padding: 4px 16px; border: 1px solid #CCC;
+				display: inline-block;
+				border-radius: 1.2em;">
+		<p>Ei tuotteita tällä hetkellä.</p>
+	</span>
+</div>
+
+<?php endif; ?>
+
 </table>
