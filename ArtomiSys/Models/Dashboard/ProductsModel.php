@@ -3,6 +3,7 @@
 namespace ArtomiSys\Models\Dashboard;
 
 use ArtomiSys\Libs\Model;
+use ArtomiSys\Libs\Images;
 
 class ProductsModel extends Model
 {
@@ -35,20 +36,39 @@ class ProductsModel extends Model
 	* @param id of the product
 	* @param return true on success, false on failure
 	*/
-	public function fetchProductData($id)
+	public function fetchProductData($id, $fields = '*')
 	{
-		$sql = "SELECT * FROM products WHERE id = :id LIMIT 1";
-		$product = $this->db->select($sql, [':id' => $id], array(), false);
+		$sql = "SELECT ".$fields." FROM products WHERE id = :id LIMIT 1";
+		$product = $this->db->select($sql, [':id' => $id], false);
 		if (isset($product['date'])) $product['date'] = date(DATE_FORM, $product['date']);
+		
+		// explode string into image names
+		if (strlen($product['images']) > 0) {
+			$imgs = explode(',', $product['images']);
+			$imgs = array_map(
+				function($a){ return trim($a, ', '); },
+				$imgs);
+
+			$product['images'] = $imgs;
+		}
 
 		return $product;
 	}
 
-	public function saveProduct($title, $content, array $images = [] , $id = 0)
+	public function saveProduct($title, $content, array $images = [] , $id = 0, $uniqid = 0)
 	{
-		$imagesStr = implode(', ', $images);
-
 		if ($id == 0) {
+			$uniqid = uniqid();
+
+			// Upload images
+			if (empty($images = Images::upload($_FILES['images'], $uniqid))) {
+				return false;
+			}
+			sort($images);
+
+			// Make a string of image names for database
+			$imagesStr = implode(', ', $images);
+
 			$data = array(
 				'title' => $title,
 				'content' => $content,
@@ -57,6 +77,12 @@ class ProductsModel extends Model
 
 			return $this->db->insert('products', $data);
 		} else {
+			$newImgs = Images::upload($_FILES['images'], $id);
+			$images = array_merge($oldImages, $newImgs);
+			sort($images);
+
+			$imagesStr = implode(', ', $images);
+
 			$data = [
 				'title' => $title,
 				'content' => $content,
@@ -81,6 +107,16 @@ class ProductsModel extends Model
 			// set an error here!
 			header('location: /ArtomiSys2/dashboard/products/view/'.$id);
 		}
+	}
+
+	public function deleteProductImgs($id)
+	{
+		// $sql = "SELECT images FROM products WHERE id = :id";
+		// $this->db->select($sql, [':id' => $id], false);
+		$images = $this->fetchProductData($id, 'images');
+		//$images = $images['images'];
+		
+		return Images::delete($images['images']);
 	}
 
 	/**
