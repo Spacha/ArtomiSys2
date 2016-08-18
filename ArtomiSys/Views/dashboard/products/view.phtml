@@ -6,14 +6,18 @@
 	</span>
 </h1>
 
-<!--
+<?php if(is_array($this->product['images'])): ?>
+
+<div style="text-align: center;">
 <?php
-foreach($this->images as $img) {
+foreach($this->product['images'] as $img) {
 	$img = '/ArtomiSys2/'. UPLOAD_DESTINATION .'/'. $img;
-	echo '<img style="height: 120px;" src="'.$img.'"/>';
+	echo '<img style="height: 160px; margin: 0 2px;" src="'.$img.'"/>';
 }
 ?>
--->
+</div>
+
+<?php endif; ?>
 
 <table class="hor-list">
 <tr>
