@@ -1,11 +1,22 @@
 <?php
 
+/**
+* DONE: Image upload on create
+* DONE: View images on 'View Product' section
+* DONE: Remove old images on edit
+*
+* TODO: Upload new images on edit
+* TODO: More clear and easier upload field!
+*
+* OPTIONAL: Bound captions to images
+*/
+
 namespace ArtomiSys\Controllers\Dashboard;
 
 use ArtomiSys\Models\Dashboard\ProductsModel;
 use ArtomiSys\Libs\Dashboard;
 use ArtomiSys\Libs\View;
-use ArtomiSys\Libs\Images;
+// use ArtomiSys\Libs\Images;
 
 class Products extends Dashboard
 {
@@ -54,9 +65,13 @@ class Products extends Dashboard
 
 			$this->runPage('products/create', $data);
 		} else {
-			if ($this->model->saveProduct(htmlspecialchars($_POST['title']), htmlspecialchars($_POST['content']))) {
+			if ($this->model->saveProduct(
+					htmlspecialchars($_POST['title']),
+					htmlspecialchars($_POST['content']),
+					$_FILES['images'])) {
 				header('location: /ArtomiSys2/dashboard/products/view/'.$this->model->lastId());
 			} else {
+				die('damn, we suck');
 				header('location: /ArtomiSys2/dashboard/products');
 			}
 		}
@@ -73,11 +88,11 @@ class Products extends Dashboard
 
 			$this->runPage('products/edit', $data);
 		} else {
-			// upload related images
-			$images = new Images();
-			$img_names = $images->upload($_FILES['images'], $id);
+			if ($this->model->saveProduct(
+									htmlspecialchars($_POST['title']), 
+									htmlspecialchars($_POST['content']),
+									$_FILES['images'], $id)) {
 
-			if ($this->model->saveProduct(htmlspecialchars($_POST['title']), htmlspecialchars($_POST['content']), $img_names, $id)) {
 				header('location: /ArtomiSys2/dashboard/products/view/'. $id);
 			} else {
 				// TODO: Remove images we just uploaded!
@@ -97,8 +112,16 @@ class Products extends Dashboard
 
 			$this->runPage('products/delete', $data);
 		} else {
-			// Actually delete the product
-			$this->model->delete($id);
+			// Actually delete the product and images related to it
+			if (!$this->model->deleteProductImgs($id)) $ok = false;
+			if (!$this->model->delete($id)) $ok = false;
+
+			if ($ok) {
+				header('location: /ArtomiSys2/dashboard/products/');
+			} else {
+				// Error!
+				header('location: /ArtomiSys2/dashboard/products/view/'.$id);
+			}
 		}
 	}
 }
