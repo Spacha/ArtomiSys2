@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"list",
+				"list-style-type"
+			],
+			[
+				"dele",
+				"deleteImgs"
+			],
+			[
+				"box",
+				"box-sizing"
+			],
+			[
+				"box-",
+				"box-shadow"
+			],
+			[
+				"over",
+				"overflow-x"
+			],
+			[
+				"disk",
+				"disk_free_space"
+			],
+			[
 				"html",
 				"htmlspecialchars"
 			],
@@ -47,46 +71,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "ArtomiSys/Controllers/Dashboard/Products.php",
-			"settings":
-			{
-				"buffer_size": 2345,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "ArtomiSys/Models/Dashboard/ProductsModel.php",
-			"settings":
-			{
-				"buffer_size": 2379,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "ArtomiSys/Controllers/Test.php",
-			"settings":
-			{
-				"buffer_size": 1050,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "ArtomiSys/Libs/Images.php",
-			"settings":
-			{
-				"buffer_size": 2333,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "ArtomiSys/Views/dashboard/products/view.phtml",
-			"settings":
-			{
-				"buffer_size": 805,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -95,12 +79,16 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 0.0,
-		"last_filter": "",
+		"height": 47.0,
+		"last_filter": "lorem",
 		"selected_items":
 		[
+			[
+				"lorem",
+				"Snippet: Lorem ipsum"
+			]
 		],
-		"width": 0.0
+		"width": 564.0
 	},
 	"console":
 	{
@@ -124,51 +112,58 @@
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Controllers",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Controllers/Dashboard",
-		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Libs",
-		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Models",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Models/Dashboard",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Views",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Views/dashboard",
-		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Views/dashboard/products"
+		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Views/dashboard/index",
+		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/public/css"
 	],
 	"file_history":
 	[
-		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Views/dashboard/products/index.phtml",
+		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Views/dashboard/index/guide.phtml",
+		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/public/css/main.css",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Controllers/Dashboard/Index.php",
-		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Models/Dashboard/ProductsModel.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Libs/Images.php",
-		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Views/dashboard/products/view.phtml",
+		"/Users/Miika/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/Miika/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Controllers/Dashboard/Products.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Libs/Helper.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Models/Dashboard/ProductsModel.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Views/dashboard/index/index.phtml",
+		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/data/artomisys.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Views/dashboard/products/index.phtml",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Views/dashboard/products/edit.phtml",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Views/dashboard/products/create.phtml",
+		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Views/dashboard/products/view.phtml",
+		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Views/_templates/default.phtml",
+		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/public/css/login.css",
+		"/Users/Miika/Documents/xamppfiles.old kopio/htdocs/Tekblok/css/main.css",
+		"/Users/Miika/Documents/Web-dev/Sivusiili/css/main.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Views/_templates/login.phtml",
+		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Libs/Database.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/.gitignore",
+		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Controllers/Test.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Libs/Dashboard.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Libs/View.php",
-		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Views/_templates/default.phtml",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/public/js/customFileInput.js",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/CustomFileInputs/js/custom-file-input.js",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/CustomFileInputs/index.html",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Views/_snippets/javascripts.phtml",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Views/_snippets/javascripts.php",
-		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/public/css/main.css",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Views/dashboard/gallery/edit.phtml",
-		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Controllers/Test.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Views/test.phtml",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/config/config.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys/Controllers/Products.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Libs/Controller.php",
-		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/.gitignore",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys/Libs/Model.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys2.sublime-project",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys2.sublime-workspace",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Libs/Model.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Views/dashboard/login.phtml",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Controllers/Dashboard/Login.php",
-		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Libs/Database.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Models/Dashboard/LoginModel.php",
 		"/Users/Miika/Downloads/mvc/libs/Database.php",
-		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/data/artomisys.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Views/snippets/dashboard/header.phtml",
-		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Views/dashboard/index/index.phtml",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Views/dashboard/products/delete.phtml",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/public/index.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/ArtomiSys2/ArtomiSys/Views/templates/default.phtml",
@@ -204,6 +199,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ruler",
+			"validate(",
+			"validate",
+			"validate(",
+			"scree",
+			"images",
+			"select",
+			"uniqid",
 			"#",
 			">"
 		],
@@ -213,6 +216,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"validateInput(",
 			"//"
 		],
 		"reverse": false,
@@ -224,164 +228,14 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "ArtomiSys/Controllers/Dashboard/Products.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2345,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1805,
-								1805
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 931.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "ArtomiSys/Models/Dashboard/ProductsModel.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2379,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1104,
-								1104
-							]
-						],
-						"settings":
-						{
-							"rulers":
-							[
-								80
-							],
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false,
-							"word_wrap": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 592.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "ArtomiSys/Controllers/Test.php",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 1050,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								351,
-								262
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 25.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "ArtomiSys/Libs/Images.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2333,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								878,
-								878
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 289.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "ArtomiSys/Views/dashboard/products/view.phtml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 805,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								538,
-								538
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 23.0
+		"height": 34.0
 	},
 	"input":
 	{
@@ -428,6 +282,58 @@
 		"selected_items":
 		[
 			[
+				"main",
+				"public/css/main.css"
+			],
+			[
+				"index",
+				"ArtomiSys/Controllers/Dashboard/Index.php"
+			],
+			[
+				"gui",
+				"ArtomiSys/Views/dashboard/index/guide.phtml"
+			],
+			[
+				"images",
+				"ArtomiSys/Libs/Images.php"
+			],
+			[
+				"produ",
+				"ArtomiSys/Models/Dashboard/ProductsModel.php"
+			],
+			[
+				"crea",
+				"ArtomiSys/Views/dashboard/products/create.phtml"
+			],
+			[
+				"login",
+				"public/css/login.css"
+			],
+			[
+				"databas",
+				"ArtomiSys/Libs/Database.php"
+			],
+			[
+				"data",
+				"ArtomiSys/Libs/Database.php"
+			],
+			[
+				"test",
+				"ArtomiSys/Controllers/Test.php"
+			],
+			[
+				"view.phtml",
+				"ArtomiSys/Views/dashboard/products/view.phtml"
+			],
+			[
+				"view.pht",
+				"ArtomiSys/Views/dashboard/products/view.phtml"
+			],
+			[
+				"tes",
+				"ArtomiSys/Controllers/Test.php"
+			],
+			[
 				"view",
 				"ArtomiSys/Views/dashboard/products/view.phtml"
 			],
@@ -436,20 +342,8 @@
 				"ArtomiSys/Models/Dashboard/ProductsModel.php"
 			],
 			[
-				"images",
-				"ArtomiSys/Libs/Images.php"
-			],
-			[
 				"edit",
 				"ArtomiSys/Views/dashboard/products/edit.phtml"
-			],
-			[
-				"crea",
-				"ArtomiSys/Views/dashboard/products/create.phtml"
-			],
-			[
-				"main",
-				"public/css/main.css"
 			],
 			[
 				"create",
@@ -462,10 +356,6 @@
 			[
 				"cre",
 				"ArtomiSys/Views/dashboard/products/create.phtml"
-			],
-			[
-				"data",
-				"ArtomiSys/data/artomisys.php"
 			],
 			[
 				"onfig",
@@ -482,10 +372,6 @@
 			[
 				"database",
 				"ArtomiSys/Libs/Database.php"
-			],
-			[
-				"index",
-				"ArtomiSys/Views/dashboard/products/index.phtml"
 			],
 			[
 				"inde",
@@ -506,10 +392,6 @@
 			[
 				"hea",
 				"ArtomiSys/Views/snippets/dashboard/header.phtml"
-			],
-			[
-				"produ",
-				"ArtomiSys/Controllers/Dashboard/Products.php"
 			],
 			[
 				"default",

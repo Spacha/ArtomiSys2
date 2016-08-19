@@ -51,6 +51,7 @@ input[type=file]:focus + label {
 	outline: 1px dotted #000;
 	outline: -webkit-focus-ring-color auto 5px;
 }
+/* TODO: style checkbox with label */
 
 /* CLASSES */
 
@@ -58,6 +59,10 @@ input[type=file]:focus + label {
 	width: 1000px;
 	max-width: 95%;
 	margin: auto;
+}
+
+.clear {
+	clear: both;
 }
 
 ul.top-nav {
@@ -97,6 +102,29 @@ ul.top-nav li a.active:after {
     border-right: 9px solid transparent;
     border-bottom: 9px solid #EEE;
     margin: -9px 0 0 -9px;
+}
+
+ul.contents {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+ul.contents li {
+	padding: 0;
+	margin: 0;
+}
+ul.contents li a {
+	
+}
+
+ul.contents ul {
+	padding: 1em;
+}
+ul.contents ul li {
+	list-style-type: none;
+}
+ul.contents ul li:before {
+	content: '';
 }
 
 .header-count {
@@ -213,7 +241,7 @@ table.list {
 table.list th {
 	background: linear-gradient(#CCC4BB, #bdb4a8);
 	padding: 10px;
-	text-align: left;
+	text-align: center;
 }
 table.list tr {
 	border-bottom: 1px solid #999;
@@ -221,6 +249,7 @@ table.list tr {
 }
 table.list td {
 	padding: 8px;
+	text-align: center;
 }
 table.list tr:hover {
 	background: #F4F4F4;
