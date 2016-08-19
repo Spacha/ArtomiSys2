@@ -13,10 +13,8 @@
 
 namespace ArtomiSys\Controllers\Dashboard;
 
-use ArtomiSys\Models\Dashboard\ProductsModel;
 use ArtomiSys\Libs\Dashboard;
-use ArtomiSys\Libs\View;
-// use ArtomiSys\Libs\Images;
+use ArtomiSys\Models\Dashboard\ProductsModel;
 
 class Products extends Dashboard
 {
@@ -77,6 +75,7 @@ class Products extends Dashboard
 
 			$this->runPage('products/create', $data);
 		} else {
+			// TODO: use an array!
 			if ($this->model->saveProduct(
 					$_POST['title'],
 					$_POST['content'],
@@ -106,14 +105,21 @@ class Products extends Dashboard
 
 			$this->runPage('products/edit', $data);
 		} else {
+			$removables = isset($_POST['removables'])
+				? $_POST['removables']
+				: array();
+
+			// Delete images from database too!
+			$this->model->deleteImgs($removables);
+			$oldImgs = $this->model->deleteRemovedImgs($_POST['oldImgs'], $removables);
+
 			if ($this->model->saveProduct(
 									$_POST['title'], 
 									$_POST['content'],
 									$_POST['visible'],
-									$_FILES['images'], $id)) {
-
-				// Delete images from database too!
-				// $this->model->deleteImgs($removables);
+									$_FILES['images'],
+									$oldImgs,
+									$id)) {
 
 				header('location: /ArtomiSys2/dashboard/products/view/'. $id);
 			} else {

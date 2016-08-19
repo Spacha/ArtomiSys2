@@ -4,6 +4,9 @@
 </h1>
 
 <form action="/ArtomiSys2/dashboard/products/edit/<?=$this->product['id'];?>/save" method="post" enctype="multipart/form-data">
+	<!-- Hidden input to store old images -->
+	<input type="hidden" name="oldImgs" value="<?=implode(', ', $this->product['images']);?>"/>
+
 	<p><b>Otsikko: </b></p>
 	<p><input type="text" name="title" value="<?=$this->product['title'];?>"/></p>
 	<p><b>Kuvaus: </b></p>
@@ -22,7 +25,7 @@
 		echo '
 			<div style="text-align: center; float: left;">
 				<img style="height: 100px; margin: 0 2px;" src="'.$imgPath.'"/>
-				<p><label for="remove_'.$i.'"><b>Poista</b> </label><input id="remove_'.$i.'" name="remove_'.$img.'" type="checkbox"/></p>
+				<p><label for="remove_'.$i.'"><b>Poista</b> </label><input id="remove_'.$i.'" name="removables[]" type="checkbox" value="'.$img.'"/></p>
 			</div>';
 
 			$i++;

@@ -45,28 +45,33 @@ class ProductsModel extends Model
 		
 		// explode string into image names
 		if (strlen($product['images']) > 0) {
-			$imgs = explode(',', $product['images']);
-			$imgs = array_map(
-				function($a){ return trim($a, ', '); },
-				$imgs);
-
+			$imgs = Helper::extractImgsStr($product['images']);
 			$product['images'] = $imgs;
+		} else {
+			$product['images'] = array();
 		}
 
 		return $product;
 	}
 
+	// is images[] really necessary?
 	public function saveProduct(
 		$title,
 		$content,
 		$visible,
 		array $images = [] ,
+		$oldImgs = [],
 		$id = 0,
 		$uniqid = 0)
 	{
 		$imagesStr = '';
 
 		if ($id == 0) {
+			/**
+			*   ---------------------
+			*	SAVE NEW PRODUCT
+			*	---------------------
+			*/
 			$uniqid = uniqid();
 
 			// If there's images, save their names to database as a string
@@ -89,10 +94,16 @@ class ProductsModel extends Model
 
 			return $this->db->insert('products', $data);
 		} else {
+			/**
+			*   ---------------------
+			*	UPDATE EDITED PRODUCT
+			*	---------------------
+			*/
+
 			$newImgs = Images::upload($_FILES['images']);
 
 			// If there's images, save their names to database as a string
-			if (!empty($images = array_merge($oldImages, $newImgs))) {
+			if (!empty($images = array_merge($oldImgs, $newImgs))) {
 				sort($images);
 				$imagesStr = implode(', ', $images);
 			}
@@ -111,6 +122,14 @@ class ProductsModel extends Model
 		}
 	}
 
+	/**
+	*	TODO: Consider a more describing name!
+	*/
+	public function deleteRemovedImgs(string $all, array $removed)
+	{
+		$all = Helper::extractImgsStr($all);
+		return array_diff($all, $removed);
+	}
 
 	/**
 	* Deletes a product from database
