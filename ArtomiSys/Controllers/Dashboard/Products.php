@@ -6,7 +6,7 @@
 * DONE: Remove old images on edit
 *
 * TODO: Upload new images on edit
-* TODO: More clear and easier upload field!
+* TODO: More clear and easier upload field (js)!
 *
 * OPTIONAL: Bound captions to images
 */
@@ -28,6 +28,10 @@ class Products extends Dashboard
 		parent::__construct();
 	}
 
+	/**
+	* Index page shows a list of all created products 
+	* and count of products in the database
+	*/
 	public function index()
 	{
 		$products = $this->model->fetchAllProducts();
@@ -42,6 +46,10 @@ class Products extends Dashboard
 		$this->runPage('products/index', $data);
 	}
 
+	/**
+	* View is used to show specific info about specified product
+	* @param id integer id of the product
+	*/
 	public function view($id = 0)
 	{
 		$product = $this->model->fetchProductData($id);
@@ -56,6 +64,10 @@ class Products extends Dashboard
 		$this->runPage('products/view', $data);
 	}
 
+	/**
+	* Shows a product creation form if save equals false
+	* @param save boolean defines whether to show the form or save the product
+	*/
 	public function create($save = false)
 	{
 		if (!$save) {
@@ -66,17 +78,23 @@ class Products extends Dashboard
 			$this->runPage('products/create', $data);
 		} else {
 			if ($this->model->saveProduct(
-					htmlspecialchars($_POST['title']),
-					htmlspecialchars($_POST['content']),
+					$_POST['title'],
+					$_POST['content'],
+					$_POST['visible'],
 					$_FILES['images'])) {
+
 				header('location: /ArtomiSys2/dashboard/products/view/'.$this->model->lastId());
 			} else {
-				die('damn, we suck');
 				header('location: /ArtomiSys2/dashboard/products');
 			}
 		}
 	}
 
+	/**
+	* Shows an edit form when save is false. Otherwise save changes
+	* @param id integer id of the product
+	* @param save boolean whether to save or show the form
+	*/
 	public function edit($id, $save = false)
 	{
 		if (!$save) {
@@ -89,18 +107,29 @@ class Products extends Dashboard
 			$this->runPage('products/edit', $data);
 		} else {
 			if ($this->model->saveProduct(
-									htmlspecialchars($_POST['title']), 
-									htmlspecialchars($_POST['content']),
+									$_POST['title'], 
+									$_POST['content'],
+									$_POST['visible'],
 									$_FILES['images'], $id)) {
+
+				// Delete images from database too!
+				// $this->model->deleteImgs($removables);
 
 				header('location: /ArtomiSys2/dashboard/products/view/'. $id);
 			} else {
-				// TODO: Remove images we just uploaded!
+				// Error!
 				header('location: /ArtomiSys2/dashboard/products');
 			}
 		}
 	}
 
+	/**
+	* Asks if user really wants to delete that particular product
+	* if seriously is false. If it's true, delete product and it's images
+	* @param id integer id of the product
+	* @param seriously boolean defines whether to show confirm or
+	* delete the product
+	*/
 	public function delete($id, $seriously = false)
 	{
 		// Confirm delete
@@ -113,10 +142,9 @@ class Products extends Dashboard
 			$this->runPage('products/delete', $data);
 		} else {
 			// Actually delete the product and images related to it
-			if (!$this->model->deleteProductImgs($id)) $ok = false;
-			if (!$this->model->delete($id)) $ok = false;
+			$this->model->deleteProductImgs($id);
 
-			if ($ok) {
+			if ($this->model->delete($id)) {
 				header('location: /ArtomiSys2/dashboard/products/');
 			} else {
 				// Error!
