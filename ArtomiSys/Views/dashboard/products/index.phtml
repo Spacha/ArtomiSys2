@@ -9,13 +9,14 @@
 <?php if(count($this->products)): ?>
 
 <table class="list">
-	<tr><th>#</th><th>Tuotteen nimi</th><th>Luotu</th><th>Työkalut</th></tr>
+	<tr><th>#</th><th>Tuotteen nimi</th><th>Julkinen</th><th>Luotu</th><th>Työkalut</th></tr>
 
 <?php
 foreach($this->products as $product) {
 	echo "<tr>
 		<td>{$product['id']}</td>
 		<td><a href=\"/ArtomiSys2/dashboard/products/view/{$product['id']}\">{$product['title']}</a></td>
+		<td><input type=\"checkbox\" ".($product['visible'] ? "checked" : "")." disabled/></td>
 		<td>{$product['date']}</td>
 		<td><a href=\"/ArtomiSys2/dashboard/products/edit/{$product['id']}\">Muokkaa</a> /
 		<a href=\"/ArtomiSys2/dashboard/products/delete/{$product['id']}\">Poista</a></td>

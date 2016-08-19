@@ -8,6 +8,29 @@
 	<p><input type="text" name="title" value="<?=$this->product['title'];?>"/></p>
 	<p><b>Kuvaus: </b></p>
 	<p><textarea name="content"><?=$this->product['content'];?></textarea></p>
+	<p><b>Julkinen: </b><input type="checkbox" name="visible" value="1" <?=$this->product['visible'] ? 'checked' : '';?>/></p>
+
+	<!-- Image list -->
+	<?php if(is_array($this->product['images'])): ?>
+
+	<div style="text-align: center;">
+	<?php
+
+	$i = 0;
+	foreach($this->product['images'] as $img) {
+		$imgPath = '/ArtomiSys2/'. UPLOAD_DESTINATION .'/'. $img;
+		echo '
+			<div style="text-align: center; float: left;">
+				<img style="height: 100px; margin: 0 2px;" src="'.$imgPath.'"/>
+				<p><label for="remove_'.$i.'"><b>Poista</b> </label><input id="remove_'.$i.'" name="remove_'.$img.'" type="checkbox"/></p>
+			</div>';
+
+			$i++;
+	}
+	?>
+	</div>
+
+	<?php endif; ?>
 
 	<p>
 		<input type="file" name="images[]" id="images" multiple/>

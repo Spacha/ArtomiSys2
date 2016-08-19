@@ -23,6 +23,8 @@ foreach($this->product['images'] as $img) {
 <tr>
 <td><b>ID: </b></td>
 <td><?=$this->product['id'];?></td></tr><tr>
+<td><b>Julkinen: </b></td>
+<td><?=($this->product['visible']) ? 'Kyllä' : 'Ei';?></td></tr>
 <td><b>Katselukertoja: </b></td>
 <td>ei saatavilla</td></tr>
 </table>
