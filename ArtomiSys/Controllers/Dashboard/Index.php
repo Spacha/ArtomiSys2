@@ -47,7 +47,8 @@ class Index extends Dashboard
 
 	public function guide($a = 1, $b = 2, $c = 3)
 	{
-		echo "<li>We are in the guide";
-		echo '<br>'.$a.$b.$c;
+		$data = ['title' => 'Opas'];
+
+		$this->runPage('index/guide', $data);
 	}
 }
