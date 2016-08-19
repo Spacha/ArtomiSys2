@@ -11,7 +11,7 @@ class Dashboard extends Controller
 	public function __construct($template = 'default')
 	{
 		$this->checkAuth();
-
+		
 		$this->view = new View($template);
 	}
 
