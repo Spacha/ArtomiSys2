@@ -4,6 +4,7 @@ namespace ArtomiSys\Models\Dashboard;
 
 use ArtomiSys\Libs\Model;
 use ArtomiSys\Libs\Images;
+use ArtomiSys\Libs\Helper;
 
 class ProductsModel extends Model
 {
@@ -55,37 +56,54 @@ class ProductsModel extends Model
 		return $product;
 	}
 
-	public function saveProduct($title, $content, array $images = [] , $id = 0, $uniqid = 0)
+	public function saveProduct(
+		$title,
+		$content,
+		$visible,
+		array $images = [] ,
+		$id = 0,
+		$uniqid = 0)
 	{
+		$imagesStr = '';
+
 		if ($id == 0) {
 			$uniqid = uniqid();
 
-			// Upload images
-			if (empty($images = Images::upload($_FILES['images'], $uniqid))) {
-				return false;
-			}
-			sort($images);
+			// If there's images, save their names to database as a string
+			if (!empty($images = Images::upload($images))) {
+				sort($images);
 
-			// Make a string of image names for database
-			$imagesStr = implode(', ', $images);
+				// Make a string of image names for database
+				$imagesStr = implode(', ', $images);
+			}
+
+			$title = Helper::validateInput($title);
+			$content = Helper::validateInput($content);
 
 			$data = array(
 				'title' => $title,
 				'content' => $content,
+				'visible' => $visible,
 				'images' => $imagesStr,
 				'date' => date("U"));
 
 			return $this->db->insert('products', $data);
 		} else {
-			$newImgs = Images::upload($_FILES['images'], $id);
-			$images = array_merge($oldImages, $newImgs);
-			sort($images);
+			$newImgs = Images::upload($_FILES['images']);
 
-			$imagesStr = implode(', ', $images);
+			// If there's images, save their names to database as a string
+			if (!empty($images = array_merge($oldImages, $newImgs))) {
+				sort($images);
+				$imagesStr = implode(', ', $images);
+			}
+
+			$title = Helper::validateInput($title);
+			$content = Helper::validateInput($content);
 
 			$data = [
 				'title' => $title,
 				'content' => $content,
+				'visible' => $visible,
 				'images' => $imagesStr,
 			];
 
@@ -115,8 +133,17 @@ class ProductsModel extends Model
 		// $this->db->select($sql, [':id' => $id], false);
 		$images = $this->fetchProductData($id, 'images');
 		//$images = $images['images'];
-		
-		return Images::delete($images['images']);
+
+		if (is_array($images['images'])) {
+			return $this->deleteImgs($images['images']);
+		}
+
+		return false;
+	}
+
+	public function deleteImgs(array $images)
+	{
+		return Images::delete($images);
 	}
 
 	/**
