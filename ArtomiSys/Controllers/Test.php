@@ -11,9 +11,11 @@ class Test extends Controller
 	{
 
 		if (!$run) {
-			//require(PATH_ROOT. '/' . PATH_TO_SHEETS .'/test.phtml');
+			require(PATH_ROOT. '/' . PATH_TO_SHEETS .'/test.phtml');
 
-			echo round(disk_free_space(PATH_ROOT)/1000000, 1).' MB';
+			echo '<li>FREE: '.round(disk_free_space(PATH_ROOT)/1000000, 1).' MB';
+			echo '<li>TOTAL: '.round(disk_total_space(PATH_ROOT)/1000000, 1).' MB';
+
 		} else {
 			$img_names = Images::upload($_FILES['images']);
 
