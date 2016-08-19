@@ -29,13 +29,17 @@ class Images
 		for($i = 0; $i < count($images['name']); $i++) {
 
 			// check if image is real or does it even exist
-			if (!isset($images['name'][$i]) || !getImageSize($images['tmp_name'][$i])) {
+			if (!isset($images['name'][$i]) || strlen($images['name'][$i]) <= 0) {
 				// $this->throwMessage('Something went wrong while uploading the image :(', 2);
-				// die('Oops!');
 				continue;
 			}
+
+			// if image is fake
+			if (!getImageSize($images['tmp_name'][$i])) {
+				continue;
+			}
+
 			if ($images['size'][$i] > UPLOAD_MAX_SIZE) {
-		    	// die('Image too large');
 		    	continue;
 			}
 
