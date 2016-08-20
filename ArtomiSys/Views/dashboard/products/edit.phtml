@@ -5,7 +5,7 @@
 
 <form action="/ArtomiSys2/dashboard/products/edit/<?=$this->product['id'];?>/save" method="post" enctype="multipart/form-data">
 	<!-- Hidden input to store old images -->
-	<input type="hidden" name="oldImgs" value="<?=implode(', ', $this->product['images']);?>"/>
+	<input type="hidden" name="oldImgs" value="<?=isset($this->product['images']) && !empty($this->product['images']) ? implode(', ', $this->product['images']) : '';?>"/>
 
 	<p><b>Otsikko: </b></p>
 	<p><input type="text" name="title" value="<?=$this->product['title'];?>"/></p>
@@ -14,7 +14,7 @@
 	<p><b>Julkinen: </b><input type="checkbox" name="visible" value="1" <?=$this->product['visible'] ? 'checked' : '';?>/></p>
 
 	<!-- Image list -->
-	<?php if(is_array($this->product['images'])): ?>
+	<?php if(isset($this->product['images']) && !empty($this->product['images'])): ?>
 
 	<div style="text-align: center;">
 	<?php

@@ -33,7 +33,7 @@ class ProductsModel extends Model
 	}
 
 	/**
-	* Fetches single products data
+	* Fetches a single product's data
 	* @param id of the product
 	* @param return true on success, false on failure
 	*/
@@ -48,7 +48,7 @@ class ProductsModel extends Model
 			$imgs = Helper::extractImgsStr($product['images']);
 			$product['images'] = $imgs;
 		} else {
-			$product['images'] = array();
+			unset($product['images']);
 		}
 
 		return $product;
