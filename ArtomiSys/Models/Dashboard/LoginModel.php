@@ -19,10 +19,11 @@ class LoginModel extends Model
 			return false;
 		}
 
-		if ($this->checkAuth($username, $password)) {
+		if ($userid = $this->checkAuth($username, $password)) {
 			// $_SESSION['id'] = uniqid();
 			
 			$_SESSION['username'] = $username;
+			$_SESSION['userid'] = $userid;
 			$_SESSION['loggedin'] = true;
 
 			return true;
@@ -51,7 +52,7 @@ class LoginModel extends Model
 		if (empty($userData)) return false;
 
 		if ($userData['password'] == $password) {
-			return true;
+			return $userData['userid'];
 		}
 
 		return false;
