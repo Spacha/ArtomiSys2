@@ -25,12 +25,11 @@ foreach($this->products as $product) {
 ?>
 <?php else: ?>
 
-<div style="font-size: 130%; text-align: center; color: #666;">
-	<span style="padding: 4px 16px; border: 1px solid #CCC;
-				display: inline-block;
-				border-radius: 1.2em;">
+<div id="list-empty">
+	<div>
+		<img src="public/img/icons/info.png"/>
 		<p>Ei tuotteita tällä hetkellä.</p>
-	</span>
+	</div>
 </div>
 
 <?php endif; ?>
