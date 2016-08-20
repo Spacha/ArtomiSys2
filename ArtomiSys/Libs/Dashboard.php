@@ -41,7 +41,7 @@ class Dashboard extends Controller
 		$this->view->render('dashboard/'.$path);
 	}
 
-	// rethink about naming and location!!!
+	// rethink about naming and move to Statistics!
 	public function getData(array $data = [])
 	{
 		// DON'T HARDCODE
@@ -65,6 +65,7 @@ class Dashboard extends Controller
 
 	private function startSession(array $options = [])
 	{
+		session_set_cookie_params(0);
 		session_start($options);
 	}
 }
