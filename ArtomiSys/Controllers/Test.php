@@ -4,6 +4,7 @@ namespace ArtomiSys\Controllers;
 
 use ArtomiSys\Libs\Controller;
 use ArtomiSys\Libs\Images;
+use ArtomiSys\Libs\Statistics;
 
 class Test extends Controller
 {
@@ -11,11 +12,18 @@ class Test extends Controller
 	{
 
 		if (!$run) {
-			require(PATH_ROOT. '/' . PATH_TO_SHEETS .'/test.phtml');
+			/*
+			$free = round(disk_free_space(PATH_ROOT)/1000000, 1);
+			$total = round(disk_total_space(PATH_ROOT)/1000000, 1);
 
-			echo '<li>FREE: '.round(disk_free_space(PATH_ROOT)/1000000, 1).' MB';
-			echo '<li>TOTAL: '.round(disk_total_space(PATH_ROOT)/1000000, 1).' MB';
-
+			echo '<li>FREE: '.$free.' MB';
+			echo '<li>TOTAL: '.$total.' MB';
+			echo '<li>USED: '. round($total/$free, 1) .'%';
+			*/
+			$statsC = new Statistics();
+			$stats = $statsC->get(['diskSpaceUsedPercent', 'diskSpaceFree']);
+			echo $stats['diskSpaceUsedPercent'].'<br>';
+			echo $stats['diskSpaceFree'];
 		} else {
 			$img_names = Images::upload($_FILES['images']);
 

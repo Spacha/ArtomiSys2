@@ -2,14 +2,13 @@
 
 /**
 * TODO: Add Request class
+* TODO: Some kind of system for internal routing maybe (Request)?
 * TODO: Statistics: when static page loaded: $this->views->add();
 * TODO: Restrict access to ArtomiSys/ folder directly
-* TODO: Add working version info (login screen and others)
 * TODO: Scale too big icons down
 * TODO: Return button on view page
 * TODO: Style some buttons
 * TODO: Errors! and messages
-* TODO: Some kind of system for internal routing maybe?
 * TODO: Sitemap.xml
 *
 * TODO: Consider using Font awesome to replace icons!
@@ -22,15 +21,16 @@ namespace ArtomiSys\Controllers\Dashboard;
 
 use ArtomiSys\Models\Dashboard\IndexModel;
 use ArtomiSys\Libs\Dashboard;
+use ArtomiSys\Libs\Statistics;
 
 class Index extends Dashboard
 {
 	private $model;
-	//private $view;
 
 	public function __construct()
 	{
 		$this->model = new IndexModel();
+		$this->statistics = new Statistics();
 		parent::__construct();
 	}
 
@@ -40,7 +40,7 @@ class Index extends Dashboard
 		$data = [
 			'title' => 'Hallintapaneeli',
 			'username' => $_SESSION['username'],
-			'stats' => $this->model->getStats()
+			'stats' => $this->statistics->get()
 		];
 
 		$this->runPage('index/index', $data);
