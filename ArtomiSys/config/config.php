@@ -5,7 +5,7 @@
 define('APP_NAME', 'ArtomiSys');
 
 define('DATE_DEFAULT_TIMEZONE', 'Europe/Helsinki');
-define('DATE_FORM', 'j.m.y \&\m\d\a\s\h; h:i');
+define('DATE_FORM', 'j.m.y \&\m\d\a\s\h; H:i');
 
 /* PATHS */
 
