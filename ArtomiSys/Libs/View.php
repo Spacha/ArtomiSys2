@@ -5,6 +5,7 @@ namespace ArtomiSys\Libs;
 class View
 {
 	public $title;
+	public $css;
 	protected $templateFile;
 
 	/*  */
@@ -25,6 +26,10 @@ class View
 	*/
 	public function render($sheet)
 	{
+		// load default css file
+		if (empty($this->css)) $this->css = 'main.css';
+		$this->css = PATH_TO_CSS .'/'. $this->css;
+
 		// page title
 		if (!isset($this->title)) $this->title = APP_NAME;
 
