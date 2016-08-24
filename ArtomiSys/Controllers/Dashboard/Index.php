@@ -5,8 +5,6 @@
 * TODO: Some kind of system for internal routing maybe (Request)?
 * TODO: Statistics: when static page loaded: $this->views->add();
 * TODO: Restrict access to ArtomiSys/ folder directly
-* TODO: Scale too big icons down
-* TODO: Return button on view page
 * TODO: Style some buttons
 * TODO: Errors! and messages
 * TODO: Sitemap.xml

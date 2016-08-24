@@ -37,6 +37,9 @@ class Dashboard extends Controller
 			$this->view->snippets['header'] = 'dashboard/header';
 		}
 
+		// Load correct css file
+		$this->view->css = 'dashboard.css';
+
 		$this->view->title = APP_NAME . ' &ndash; '.$title;
 		$this->view->render('dashboard/'.$path);
 	}
