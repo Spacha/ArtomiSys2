@@ -1,1 +1,8 @@
 public/uploads/products/
+
+#**************#
+# Sublime Text #
+#**************#
+
+*.sublime-workspace
+*.sublime-project
