@@ -1,0 +1,27 @@
+<!--
+	DASHBOARD
+-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><?=$this->title;?></title>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- <link rel="stylesheet" href="public/css/main.css"/> -->
+		<?php
+		if (isset($this->css)) {
+			echo '<link rel="stylesheet" href="'. $this->css .'"/>';
+		}
+		?>
+	</head>
+	<body>
+		<div id="header">
+		<?=!empty($this->snippets['header']) ? $this->snippets['header'] : '';?>
+		</div>
+		<div class="wrapper">
+		<?=$this->output;?>
+		</div>
+	</body>
+</html>

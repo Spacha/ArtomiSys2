@@ -1,3 +1,37 @@
-<h1>Product list</h1>
+<h1 style="display: inline-block; width: 100%;">
+	Tuotteet <span class="header-count"><?=$this->productsCount;?></span>
+	<span class="hotbar">
+		<a href="/ArtomiSys2/dashboard/products/create" class="btn icon icon-plus">Lisää tuote</a>
+		<a href="/ArtomiSys2/dashboard/index/guide#products" target="_blank" class="btn icon icon-help">Apua</a>
+	</span>
+</h1>
 
-<i>Here you will see a list of all products.</i>
+<?php if(count($this->products)): ?>
+
+<table class="list">
+	<tr><th>#</th><th>Tuotteen nimi</th><th>Julkinen</th><th>Luotu</th><th>Työkalut</th></tr>
+
+<?php
+foreach($this->products as $product) {
+	echo "<tr>
+		<td>{$product['id']}</td>
+		<td><a href=\"/ArtomiSys2/dashboard/products/view/{$product['id']}\">{$product['title']}</a></td>
+		<td><input type=\"checkbox\" ".($product['visible'] ? "checked" : "")." disabled/></td>
+		<td>{$product['date']}</td>
+		<td><a href=\"/ArtomiSys2/dashboard/products/edit/{$product['id']}\">Muokkaa</a> /
+		<a href=\"/ArtomiSys2/dashboard/products/delete/{$product['id']}\">Poista</a></td>
+		</tr>";
+}
+?>
+<?php else: ?>
+
+<div id="list-empty">
+	<div>
+		<img src="public/img/icons/info.png"/>
+		<p>Ei tuotteita tällä hetkellä.</p>
+	</div>
+</div>
+
+<?php endif; ?>
+
+</table>

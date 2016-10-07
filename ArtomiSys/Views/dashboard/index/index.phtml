@@ -1,3 +1,22 @@
-<h1>Dashboard</h1>
+<div style="text-align: center;">
+	<img src="public/img/artomisys_header.png" style="height: 3em; margin: 12px;"/>
+</div>
 
-<i>Here you will see some statistics and maybe some tips or something.</i>
+<!--<h1> Hallintapaneeli</h1>-->
+
+<div class="block">
+	<h2>Tervetuloa <?=$this->username;?>!</h2>
+    <p>Tervetuloa ArtomiSysiin. Tätä kautta pystyt hallitsemaan tuotekatalogia helposti ja nopeasti. ArtomiSys on suunniteltu käytettäväksi pääosin tietokoneella, mutta päivitys onnistuu myös tabletti- ja mobiililaitteilla. <i>Muista kirjautua ulos päivityksen jälkeen turvallisuuden takaamiseksi.</i></p>
+    <p>Lisää ohjeita voit lukea <a href="/ArtomiSys2/dashboard/index/guide">täältä</a>. Ongelmatapauksissa ota yhteyttä sähköpostilla osoitteeseen: <a href="mailto:miikasikala96@gmail.com">miikasikala96@gmail.com</a> tai puhelimitse numeroon: 045 624 0118.</p>
+</div>
+
+<h2>Tilastotietoa</h2>
+<table class="hor-list">
+<tr>
+<td><b>Tuotteita: </b></td>
+<td><?=$this->stats['productsCount'];?></td></tr><tr>
+<td><b>Salasana vaihdettu: </b></td>
+<td><?=$this->stats['passwordChanged'];?></td></tr>
+<td><b>Palvelintilasta käytetty: </b></td>
+<td><?=$this->stats['diskSpaceUsed'];?> (<?=$this->stats['diskSpaceUsedPercent'];?>)</td></tr>
+</table>

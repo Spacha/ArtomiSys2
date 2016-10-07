@@ -2,22 +2,47 @@
 
 namespace ArtomiSys\Controllers\Dashboard;
 
-use ArtomiSys\Libs\Controller;
+use ArtomiSys\Models\Dashboard\SettingsModel;
+use ArtomiSys\Libs\Dashboard;
+use ArtomiSys\Libs\Statistics;
 
-class Index extends Controller
+class Settings extends Dashboard
 {
+	private $model;
+
 	public function __construct()
 	{
-		echo "<li><b>Index controller</b>";
+		$this->model = new SettingsModel();
+		$this->statistics = new Statistics();
+		parent::__construct();
 	}
 
+	// this is a custom index (defined in 'config/routes.php')
 	public function index()
 	{
-		echo "<li>Index page";
+		$data = [
+			'title' => 'Asetukset',
+			'settings' => $this->model->getSettings(),
+			'userdata' => [
+					'name' => $_SESSION['username'],
+					'id' => $_SESSION['userid']
+				]
+		];
+
+		$this->runPage('settings/index', $data);
 	}
 
-	public function guide()
+	public function changePassword()
 	{
-		echo "<li>We are in guide";
+		if ($this->model->changePassword(
+				$_POST['oldPassword'],
+				$_POST['newPassword'],
+				$_POST['repeatNewPassword'])) {
+			$this->statistics->set(['passwordChanged' => date("U")]);
+			header('location: /ArtomiSys2/dashboard/login');
+		} else {
+			// Error!
+			header('location: /ArtomiSys2/dashboard/settings');
+		}
 	}
 }

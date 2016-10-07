@@ -1,24 +1,97 @@
-html, body {
-	margin: 0;
-	background: #EEEEAA;
-}
+/* Main css file */
 
 /* GLOBALS */
 
+html, body {
+	margin: 0;
+	background: #EEE;
+	height: 100%;
+
+	font-family: 'Trebuchet MS', Helvetica;
+}
+
+a {
+	text-decoration: none;
+	color: #BB6600;
+}
+
 /* CLASSES */
+
+.wrapper {
+	width: 1000px;
+	max-width: 95%;
+	margin: auto;
+}
+
+.clear {
+	clear: both;
+}
+
+ul.top-nav {
+	padding-left: 40px;
+	margin: 0;
+	display: inline-block;
+}
+ul.top-nav li {
+	list-style-type: none;
+	display: inline-block;
+}
+ul.top-nav li a {
+	padding: 1em;
+	color: #FFF;
+	position: relative;
+	display: inline-block;
+	text-decoration: none;
+
+	transition: 0.2s ease-in-out color;
+}
+ul.top-nav li a:hover {
+	color: #A7D1FD;
+}
+ul.top-nav li a.active {
+	color: #A7D1FD;
+}
+
+ul.top-nav li a.active:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 9px solid #EEE;
+    margin: -9px 0 0 -9px;
+}
 
 /* IDENTIFIERS */
 
 #header {
-	background: #AAA;
-	padding: 6px;
-}
-#header a {
-	color: #FFF;
-	text-decoration: none;
-}
-#header a.active {
-	text-decoration: underline;
+	background: #000;
 }
 
-/* PAGE SPECIFIC */
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 720px) {
+	ul.top-nav {
+		padding: 0;
+		display: block;
+		width: 100%;
+	}
+	ul.top-nav li {
+		text-align: center;
+		display: block;
+		width: 100%;
+	}
+	ul.top-nav li a {
+		width: 100%;
+		box-sizing: border-box;
+	}
+	ul.top-nav li a.active {
+		background: #ff8680;
+	}
+	ul.top-nav li a.active:after {
+		display: none;
+	}
+}
