@@ -22,7 +22,7 @@ class Helper
 
 	/**
 	* Explodes a string into image names
-	* @param {string} containing image names (separated by ',')
+	* @param {string} containing image names (separated by commas)
 	* @return {array} image names
 	*/
 	public static function extractImgsStr(string $str)
@@ -34,8 +34,34 @@ class Helper
 		$imgs = explode(',', $str);
 		$imgs = array_map(
 			function($a){ return trim($a, ', '); },
-			$imgs);
+			$imgs
+		);
 
 		return $imgs;
+	}
+
+	/**
+	* Sets first image of the product as a preview image.
+	* If images doesn't exist, set default
+	* @param (string) imgs containing image names (separated by commas)
+	* @return (string) image with full path
+	*/
+	public static function previewImgs(string $imgs)
+	{
+		$previewImg = DEFAULT_PREVIEW_IMG;
+
+		// if product as no images, set default
+		if (strlen($imgs) <= 0) return $previewImg;
+		
+		$imgs = self::extractImgsStr($imgs);
+
+		$first = UPLOAD_DESTINATION . "/" . $imgs[0];
+
+		// if first image exists, set it
+		if (file_exists(PATH_FILE_ROOT . "/" . $first)) {
+			$previewImg = PATH_ROOT . "/" . $first;
+		}
+
+		return $previewImg;
 	}
 }

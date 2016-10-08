@@ -6,8 +6,6 @@ use ArtomiSys\Libs\View;
 
 class StaticPages extends Controller
 {
-	protected $requireLogin = true;
-
 	public function __construct($template = 'default')
 	{	
 		$this->view = new View($template);

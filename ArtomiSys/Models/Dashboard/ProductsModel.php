@@ -19,14 +19,17 @@ class ProductsModel extends Model
 	* @param order defines in which order products are by date (ascending/descending)
 	* @return associative array of products
 	*/
-	public function fetchAllProducts($order = "DESC")
+	public function fetchAllProducts($onlyPublic = false, $order = "DESC")
 	{
-		$sql = "SELECT * FROM products ORDER BY date $order";
+		$visible = $onlyPublic ? 'WHERE visible > 0' : '';
+
+		$sql = "SELECT * FROM products $visible ORDER BY date $order";
 
 		$products = $this->db->select($sql);
 
 		foreach($products as &$product) {
 			$product['date'] = date(DATE_FORM, $product['date']);
+			$product['previewImg'] = Helper::previewImgs($product['images']);
 		}
 
 		return $products;
@@ -37,9 +40,11 @@ class ProductsModel extends Model
 	* @param id of the product
 	* @param return true on success, false on failure
 	*/
-	public function fetchProductData($id, $fields = '*')
+	public function fetchProductData($id, $onlyPublic = false, $fields = '*')
 	{
-		$sql = "SELECT ".$fields." FROM products WHERE id = :id LIMIT 1";
+		$visible = $onlyPublic ? 'AND visible > 0' : '';
+
+		$sql = "SELECT ".$fields." FROM products WHERE id = :id $visible LIMIT 1";
 		$product = $this->db->select($sql, [':id' => $id], false);
 		if (isset($product['date'])) $product['date'] = date(DATE_FORM, $product['date']);
 		

@@ -48,7 +48,7 @@ class Dashboard extends Controller
 	public function getData(array $data = [])
 	{
 		// DON'T HARDCODE
-		return require(PATH_ROOT .'/ArtomiSys/data/artomisys.php');
+		return require(PATH_FILE_ROOT .'/ArtomiSys/data/artomisys.php');
 	}
 
 	// for login

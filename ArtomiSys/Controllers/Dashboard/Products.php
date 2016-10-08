@@ -75,11 +75,13 @@ class Products extends Dashboard
 
 			$this->runPage('products/create', $data);
 		} else {
+			$visible = $_POST['visible'] ? $_POST['visible'] : 0;
+
 			// TODO: use an array!
 			if ($this->model->saveProduct(
 					$_POST['title'],
 					$_POST['content'],
-					$_POST['visible'],
+					$visible,
 					$_FILES['images'])) {
 
 				header('location: /ArtomiSys2/dashboard/products/view/'.$this->model->lastId());

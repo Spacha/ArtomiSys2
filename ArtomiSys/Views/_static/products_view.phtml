@@ -1,0 +1,19 @@
+<h1>Showing product!</h1>
+
+<?php
+
+if(isset($this->product['images']) && !empty($this->product['images'])) {
+	foreach($this->product['images'] as $img) {
+		$img = '/ArtomiSys2/'. UPLOAD_DESTINATION .'/'. $img;
+		echo '<img style="height: 160px; margin: 0 2px;" src="'.$img.'"/>';
+	}
+}
+
+echo "
+	<div style=''><h2>". $this->product['title'] ."</h2>
+	<span style='font-style: cursive; color: #CCCCCC;'>". $this->product['date'] ."</span>
+	<p>". $this->product['content'] ."</p>
+</div>";
+
+?>
+</div>

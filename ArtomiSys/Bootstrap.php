@@ -3,10 +3,11 @@
 use ArtomiSys\Libs\Router;
 
 // Define root path
-define('PATH_ROOT', dirname(__DIR__));
+define('PATH_FILE_ROOT', dirname(__DIR__));
+define('APP_ENV', 'development');
 
 // include main config file
-require(PATH_ROOT . '/ArtomiSys/config/config.php');
+require(PATH_FILE_ROOT . '/ArtomiSys/config/config.php');
 
 // set the timezone
 date_default_timezone_set(DATE_DEFAULT_TIMEZONE);
@@ -14,8 +15,8 @@ date_default_timezone_set(DATE_DEFAULT_TIMEZONE);
 // Autoload classes
 spl_autoload_register(function($className) {
 	$className = str_replace('\\', DIRECTORY_SEPARATOR, $className);
-	if (is_file(PATH_ROOT . '/' . $className . '.php')) {
-        require(PATH_ROOT . '/' . $className . '.php');
+	if (is_file(PATH_FILE_ROOT . '/' . $className . '.php')) {
+        require(PATH_FILE_ROOT . '/' . $className . '.php');
     }
 });
 

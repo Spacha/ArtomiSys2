@@ -19,6 +19,7 @@ class Router
 	
 	private $customIndex;
 	private $subControllers = array();
+	private $routes = array();
 
 	private  $request = array(
 		'controller' => '',
@@ -27,11 +28,19 @@ class Router
 
 	// private $urlRoutes = ROOT_PATH . '/config/routes.php';
 
-
 	public function __construct($url)
 	{
+		$routes = require(PATH_FILE_ROOT .'/'. APP_NAME .'/config/routes.php');
+		$routes['dynamicArguments'] = array_map(
+			function($a) { return self::CONTROLLER_NS . $a; },
+			$routes['dynamicArguments']
+		);
+
+		$this->routes = $routes;
+
 		$this->subControllers = $this->findSubControllers();
 		$this->setRoute($url ? $url : null);
+
 	}
 
 	private function setRoute($url = null)
@@ -60,24 +69,42 @@ class Router
 		$i++;
 
 		// defining action (method)
-		$this->request['action'] = isset($urlParts[$i])
-			? $urlParts[$i]
-			: $this->getDefaultIndex($this->request['controller']);
+
+		// $this->request['action'] = isset($urlParts[$i])
+		// 	? $urlParts[$i]
+		// 	: $this->getDefaultIndex($this->request['controller']);
+
+		$defaultIndex = $this->getDefaultIndex($this->request['controller']);
+
+		// check for dynamic arguments
+		if (isset($urlParts[$i])) {
+			if (is_numeric($urlParts[$i]) && $this->hasDynamicArguments($this->request['controller'], $defaultIndex)) {
+				$this->request['action'] = $defaultIndex;
+			} else {
+				// go the normal way
+				$this->request['action'] = $urlParts[$i];
+				$i++;
+			}
+		} else {
+			$this->request['action'] = $defaultIndex;
+			$i++;
+		}
 		
 		// Push the rest into an array as arguments
-		for($j = ++$i; $j < count($urlParts); $j++) {
+		for($j = $i; $j < count($urlParts); $j++) {
 			array_push($this->request['paramArr'], $urlParts[$j]);
 		}
 	}
 	
 	public function getRoute()
 	{
+		// die(var_dump($this->request));
 		return $this->request;
 	}
 
 	private function getDefaultIndex($controller)
 	{
-		$routes = require(PATH_ROOT .'/'. APP_NAME .'/config/routes.php');
+		$routes = $this->routes;
 		$controller = str_replace(self::CONTROLLER_NS, '', $controller);
 
 		if (isset($routes['customIndexes'][$controller])) {
@@ -89,7 +116,7 @@ class Router
 
 	private function findSubControllers()
 	{
-		$path = PATH_ROOT .'/'. APP_NAME .'/Controllers/';
+		$path = PATH_FILE_ROOT .'/'. APP_NAME .'/Controllers/';
 		$scanResults = scandir($path);
 		$results = array();
 
@@ -100,5 +127,10 @@ class Router
 		}
 
 		return $results;
+	}
+
+	private function hasDynamicArguments($controller, $method)
+	{
+		return in_array($controller ."::". $method, $this->routes['dynamicArguments']);
 	}
 }
