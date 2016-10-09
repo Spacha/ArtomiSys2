@@ -9,6 +9,7 @@
 namespace ArtomiSys\Libs;
 
 use PDO;
+use ArtomiSys\Libs\Log;
 
 class Database extends PDO
 {
@@ -64,7 +65,10 @@ class Database extends PDO
             $query->bindValue(":$key", $value);
         }
 
-        return $query->execute();
+        $result = $query->execute();
+        if ($result) Log::write('Performed DB insert ( TABLE: '.$table.')');
+        
+        return $result;
 	}
 
 	public function update($table, array $data, $where)
@@ -82,15 +86,21 @@ class Database extends PDO
         foreach ($data as $key => $value) {
             $query->bindValue(":$key", $value);
         }
+
+        $result = $query->execute();
+        if ($result) Log::write('Performed DB update ( TABLE: '. $table .' WHERE: '.$where.')');
         
-        return $query->execute();
+        return $result;
 	}
 
 	public function delete($table, $where, $limit = 1)
 	{
-		//die( "DELETE FROM $table WHERE $where LIMIT $limit" );
 		$query = $this->prepare("DELETE FROM $table WHERE $where LIMIT $limit");
-		return $query->execute();
+		$result = $query->execute();
+
+		if ($result) Log::write('Performed DB deletion ( TABLE: '. $table . 'WHERE: '.$where.')');
+
+		return $result;
 	}
 
 	public function rowCount($table)

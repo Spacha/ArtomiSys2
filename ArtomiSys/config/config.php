@@ -20,8 +20,9 @@ switch(APP_ENV) {
 
 		define('PATH_ROOT', $_SERVER['SERVER_NAME'] . '/ArtomiSys2');
 
-		define('PATH_TO_CSS', 'public/css');
+		define('PATH_TO_LOGS', 'ArtomiSys/logs');
 
+		define('PATH_TO_CSS', 'public/css');
 		define('PATH_TO_TEMPLATES', 'ArtomiSys/Views/_templates');
 		define('PATH_TO_SHEETS', 'ArtomiSys/Views');
 		define('PATH_TO_SNIPPETS', 'ArtomiSys/Views/_snippets');
@@ -49,8 +50,9 @@ switch(APP_ENV) {
 
 		/* PATHS */
 
+		define('PATH_TO_LOGS', 'ArtomiSys/logs');
+		
 		define('PATH_TO_CSS', 'public/css');
-
 		define('PATH_TO_TEMPLATES', 'ArtomiSys/Views/_templates');
 		define('PATH_TO_SHEETS', 'ArtomiSys/Views');
 		define('PATH_TO_SNIPPETS', 'ArtomiSys/Views/_snippets');
