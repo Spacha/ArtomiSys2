@@ -297,3 +297,39 @@ h1 span.sub-h {
 		max-width: 100%;
 	}
 }
+
+/* Media */
+@media only screen and (min-width: 730px) {
+  ul#nav li {
+    width: auto; }
+
+  ul#nav li a {
+    width: auto; }
+
+  .col {
+    width: 33%;
+    padding: 20px;
+    float: left; }
+
+  ul#nav li a.active {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0; }
+
+  #left-col {
+    width: 60%; }
+
+  #right-col {
+    width: 38%;
+    float: right;
+    padding: 10px 0; }
+
+  #content #left {
+    width: 68%; }
+
+  #content #right {
+    width: 30%; } }
+@media only screen and (min-width: 850px) {
+  #header #logo {
+    height: 76px;
+    width: auto;
+    max-width: 100%; } }
