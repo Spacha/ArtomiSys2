@@ -37,14 +37,11 @@ spl_autoload_register(function($className) {
 
 
 set_exception_handler(function(Throwable $e) {
-	die(var_dump($e));
-	$message = false;
-    
-    if (get_class($e) == 'ArtomiSys\Exceptions\DatabaseException') {
-        $message = $e->getMessage();
-    }
 
-    $error = new UserError($message);
+    $message = !empty($e->getMessage()) ? $e->getMessage() : '';
+    $code = !empty($e->getCode()) ? $e->getCode() : 0;
+
+    $error = new UserError($message, $code);
     $error->show();
     Log::write(get_class($e) . ': ' . $e->getMessage() . ' in file ' . $e->getFile() . ' on line ' . $e->getLine(), 'ERROR');
     

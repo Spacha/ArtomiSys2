@@ -38,12 +38,12 @@ Class UserError extends \Error
 			case 404:
 				// Not found
 				http_response_code(404);
-				$this->errorFile = PATH_TO_ERROR_FILES ."/404.phtml";
+				$this->errorFile = PATH_FILE_ROOT ."/". PATH_TO_ERROR_FILES ."/404.phtml";
 				break;
 			default:
 				// Unknown error (internal server error)
 				http_response_code(500);
-				$this->errorFile = PATH_TO_ERROR_FILES ."/500.phtml";
+				$this->errorFile = PATH_FILE_ROOT ."/". PATH_TO_ERROR_FILES ."/500.phtml";
 				break;
 		}
 	}
