@@ -4,7 +4,7 @@ namespace ArtomiSys\Libs;
 
 Class Log
 {
-	public static function write(string $str, $type = 'default')
+	public static function write(string $str, $type = 'DEFAULT')
 	{
 		if(strlen($str) <= 0) return false;
 
@@ -12,7 +12,7 @@ Class Log
 
 		// select log by type
 		switch ($type) {
-			case 'error':
+			case 'ERROR':
 				$logFile .= 'errors.log';
 				break;
 			
@@ -24,7 +24,7 @@ Class Log
 		$logLine = '['. date('Y-m-d H:i:s').' ';
 
 		// if logged in, log user id
-		if ($_SESSION['loggedin']) {
+		if (!empty($_SESSION['loggedin'])) {
 			$logLine .= ' user: '. $_SESSION['userid'] .' ';
 		}
 
