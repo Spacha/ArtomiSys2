@@ -43,6 +43,7 @@ set_exception_handler(function(Throwable $e) {
 
     $error = new UserError($message, $code);
     $error->show();
+
     Log::write(get_class($e) . ': ' . $e->getMessage() . ' in file ' . $e->getFile() . ' on line ' . $e->getLine(), 'ERROR');
     
     die();

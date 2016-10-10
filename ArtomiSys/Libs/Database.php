@@ -16,16 +16,10 @@ class Database extends PDO
 	public function __construct($dbConfig)
 	{
 		$config = require($dbConfig);
+		parent::__construct('mysql:host='. $config['host'] .';dbname=s'. $config['name'], $config['user'], $config['password']);
 
-		try {
-			parent::__construct('mysql:host='. $config['host'] .';dbname='. $config['name'], $config['user'], $config['password']);
-
-			$this->exec('SET NAMES utf8');
-			$this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-			// $this->setAttribute(PDO::MYSQL_ATTR_FOUND_ROWS, true);
-		} catch(PDOException $e) {
-			die('Error! '. $e->getMessage());
-		}
+		$this->exec('SET NAMES utf8');
+		$this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 	}
 
 	/**

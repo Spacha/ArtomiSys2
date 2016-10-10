@@ -28,6 +28,13 @@ Class UserError extends \Error
 			Log::write($this->message. "(". $this->code .")", 'ERROR');
 		}
 
+		// if not in development, show a general error page
+		if (APP_ENV !== 'development') {
+			$this->message = "<p>Palvelimella on huoltokatko. Yritä uudelleen hetken kuluttua.</p>
+			<p>Jos ongelma jatkuu, ota yhteyttä tukeen.</p>";
+			$this->errorFile = PATH_FILE_ROOT ."/". PATH_TO_ERROR_FILES ."/503.phtml";
+		}
+
 		require_once($this->errorFile);
 		die();
 	}
