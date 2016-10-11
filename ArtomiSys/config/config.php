@@ -51,6 +51,8 @@ switch(APP_ENV) {
 
 		/* PATHS */
 
+		define('PATH_ROOT', $_SERVER['SERVER_NAME'] . '/ArtomiSys2');
+
 		define('PATH_TO_LOGS', 'ArtomiSys/logs');
 		
 		define('PATH_TO_CSS', 'public/css');

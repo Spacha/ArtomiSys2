@@ -16,7 +16,7 @@ class Database extends PDO
 	public function __construct($dbConfig)
 	{
 		$config = require($dbConfig);
-		parent::__construct('mysql:host='. $config['host'] .';dbname=s'. $config['name'], $config['user'], $config['password']);
+		parent::__construct('mysql:host='. $config['host'] .';dbname='. $config['name'], $config['user'], $config['password']);
 
 		$this->exec('SET NAMES utf8');
 		$this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);

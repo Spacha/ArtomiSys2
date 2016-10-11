@@ -66,7 +66,7 @@ if (class_exists($route['controller'])) {
 
 	// TODO: if method doesn't exist, call default
 	if (!method_exists($controller, $route['action'])) {
-		throw new \Exception('Tried to call inexisting method \''. $route['action'] .'\'.');
+		throw new UserError('Tried to call inexisting method \''. $route['action'] .'\'.', 404);
 	}
 
 	call_user_func_array([$controller, $route['action']], $route['paramArr']);
