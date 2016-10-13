@@ -10,6 +10,7 @@
 
 <div style="text-align: center;">
 <?php
+
 foreach($this->product['images'] as $img) {
 	$img = '/ArtomiSys2/'. UPLOAD_DESTINATION .'/'. $img;
 	echo '<img style="height: 160px; margin: 0 2px;" src="'.$img.'"/>';

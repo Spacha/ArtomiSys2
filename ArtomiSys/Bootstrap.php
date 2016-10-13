@@ -1,12 +1,22 @@
 <?php
 
 use ArtomiSys\Libs\Router;
+use ArtomiSys\Libs\Log;
+use ArtomiSys\Libs\UserError;
+
+
+
+/*****************
+*   INITIALIZE   *
+*****************/
+
 
 // Define root path
-define('PATH_ROOT', dirname(__DIR__));
+define('PATH_FILE_ROOT', dirname(__DIR__));
+define('APP_ENV', 'development');
 
 // include main config file
-require(PATH_ROOT . '/ArtomiSys/config/config.php');
+require(PATH_FILE_ROOT . '/ArtomiSys/config/config.php');
 
 // set the timezone
 date_default_timezone_set(DATE_DEFAULT_TIMEZONE);
@@ -14,21 +24,38 @@ date_default_timezone_set(DATE_DEFAULT_TIMEZONE);
 // Autoload classes
 spl_autoload_register(function($className) {
 	$className = str_replace('\\', DIRECTORY_SEPARATOR, $className);
-	if (is_file(PATH_ROOT . '/' . $className . '.php')) {
-        require(PATH_ROOT . '/' . $className . '.php');
+	if (is_file(PATH_FILE_ROOT . '/' . $className . '.php')) {
+        require(PATH_FILE_ROOT . '/' . $className . '.php');
     }
 });
 
-// Exceptions
 
-/*
-set_exception_handler(function($e) {
-	die('<p><b>Error! </b>' . $e->getMessage() . '</p>' .
-		'<p>Please contact support.</p>');
+
+/************************
+*   Handle Exceptions   *
+************************/
+
+
+set_exception_handler(function(Throwable $e) {
+
+    $message = !empty($e->getMessage()) ? $e->getMessage() : '';
+    $code = !empty($e->getCode()) ? $e->getCode() : 0;
+
+    $error = new UserError($message, $code);
+    $error->show();
+
+    Log::write(get_class($e) . ': ' . $e->getMessage() . ' in file ' . $e->getFile() . ' on line ' . $e->getLine(), 'ERROR');
+    
+    die();
 });
-*/
 
-// Url handling
+
+
+/**************************
+*   HANDLE URL REQUESTS   *
+**************************/
+
+
 $url = !empty($_GET["url"]) ? $_GET["url"] : null;
 $router = new Router($url);
 $route = $router->getRoute();
@@ -39,10 +66,11 @@ if (class_exists($route['controller'])) {
 
 	// TODO: if method doesn't exist, call default
 	if (!method_exists($controller, $route['action'])) {
-		throw new \Exception('Tried to call inexisting method \''. $route['action'] .'\'.');
+		throw new UserError('Tried to call inexisting method \''. $route['action'] .'\'.', 404);
 	}
 
 	call_user_func_array([$controller, $route['action']], $route['paramArr']);
 } else {
-	throw new \Exception('Tried to call inexisting controller \''. $route['controller'] .'\'.');
+	// throw new \Exception('Tried to call inexisting controller \''. $route['controller'] .'\'.');
+	throw new UserError("Sivua ei löydy!", 404);
 }

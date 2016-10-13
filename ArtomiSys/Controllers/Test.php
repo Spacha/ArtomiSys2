@@ -13,8 +13,8 @@ class Test extends Controller
 
 		if (!$run) {
 			/*
-			$free = round(disk_free_space(PATH_ROOT)/1000000, 1);
-			$total = round(disk_total_space(PATH_ROOT)/1000000, 1);
+			$free = round(disk_free_space(PATH_FILE_ROOT)/1000000, 1);
+			$total = round(disk_total_space(PATH_FILE_ROOT)/1000000, 1);
 
 			echo '<li>FREE: '.$free.' MB';
 			echo '<li>TOTAL: '.$total.' MB';

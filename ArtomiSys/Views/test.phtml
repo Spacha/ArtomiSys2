@@ -8,7 +8,7 @@
 <?php
 
 $allowed_exts = ['jpg','jpeg','png','gif'];
-$uploads = scandir(PATH_ROOT.'/'.UPLOAD_DESTINATION);
+$uploads = scandir(PATH_FILE_ROOT.'/'.UPLOAD_DESTINATION);
 
 foreach($uploads as $file) {
 	if (in_array(pathinfo($file, PATHINFO_EXTENSION), $allowed_exts)) {

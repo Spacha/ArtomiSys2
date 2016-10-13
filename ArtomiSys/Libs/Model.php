@@ -11,6 +11,6 @@ abstract class Model
 	public function __construct($dbConfig = self::DEFAULT_DB_CONFIG)
 	{
 		// prefer: define('APP_NAME', 'ArtomiSys')
-		$this->db = new Database(PATH_ROOT.'/ArtomiSys/config/'.$dbConfig);
+		$this->db = new Database(PATH_FILE_ROOT.'/ArtomiSys/config/'.$dbConfig);
 	}
 }

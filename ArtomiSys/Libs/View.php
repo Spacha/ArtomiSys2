@@ -38,7 +38,7 @@ class View
 
 		// get contents of $sheet as a variable using output buffering
 		ob_start();
-		if ($this->tryit(PATH_ROOT. '/' . PATH_TO_SHEETS . '/' . $sheet .'.phtml')) {
+		if ($this->tryit(PATH_FILE_ROOT. '/' . PATH_TO_SHEETS . '/' . $sheet .'.phtml')) {
 			$this->output = ob_get_clean();
 		} else {
 			ob_get_clean();
@@ -58,7 +58,7 @@ class View
 
 		foreach($snippets as $name => $path) {
 			ob_start();
-			require(PATH_ROOT . '/' . PATH_TO_SNIPPETS . '/' . $path . '.phtml');
+			require(PATH_FILE_ROOT . '/' . PATH_TO_SNIPPETS . '/' . $path . '.phtml');
 			$result[$name] = ob_get_clean();
 		}
 
@@ -67,7 +67,7 @@ class View
 
 	private function templatePath($template)
 	{
-		return PATH_ROOT .'/'. PATH_TO_TEMPLATES . '/' . $template . '.phtml';
+		return PATH_FILE_ROOT .'/'. PATH_TO_TEMPLATES . '/' . $template . '.phtml';
 	}
 
 	/**

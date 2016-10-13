@@ -55,21 +55,21 @@ class Statistics extends Model
 
 					break;
 				case 'diskSpaceFree':
-					$results[$stat] = round(disk_free_space(PATH_ROOT)/1000000, 1).' Mt';
+					$results[$stat] = round(disk_free_space(PATH_FILE_ROOT)/1000000, 1).' Mt';
 					break;
 				case 'diskSpaceTotal':
-					$results[$stat] = round(disk_total_space(PATH_ROOT)/1000000, 1).' Mt';
+					$results[$stat] = round(disk_total_space(PATH_FILE_ROOT)/1000000, 1).' Mt';
 					break;
 				case 'diskSpaceUsed':
 					$results[$stat] = round(
-										(disk_total_space(PATH_ROOT)-
-										disk_free_space(PATH_ROOT))/1000000, 1).' Mt';
+										(disk_total_space(PATH_FILE_ROOT)-
+										disk_free_space(PATH_FILE_ROOT))/1000000, 1).' Mt';
 					break;
 				case 'diskSpaceUsedPercent':
 					$results[$stat] = round(
-										disk_total_space(PATH_ROOT)/
-										(disk_total_space(PATH_ROOT)-
-										disk_free_space(PATH_ROOT)), 1).'%';
+										disk_total_space(PATH_FILE_ROOT)/
+										(disk_total_space(PATH_FILE_ROOT)-
+										disk_free_space(PATH_FILE_ROOT)), 1).'%';
 					break;
 				default:
 					$results[$stat] = "tuntematon";

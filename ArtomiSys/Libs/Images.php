@@ -10,7 +10,7 @@ namespace Artomisys\Libs;
 
 class Images
 {
-	const UPLOAD_DESTINATION = PATH_ROOT . '/' . UPLOAD_DESTINATION;
+	const UPLOAD_DESTINATION = PATH_FILE_ROOT . '/' . UPLOAD_DESTINATION;
 
 	protected static $allowed_exts = ['jpg','jpeg','png','gif'];
 
@@ -48,7 +48,7 @@ class Images
 			$ext = pathinfo($images['name'][$i])['extension'];
 
 			$basename = 'img_'. date("Y-m-d") .'-'. uniqid() .'.'.$ext;
-			$new_name = PATH_ROOT .'/'. UPLOAD_DESTINATION .'/'. $basename;
+			$new_name = PATH_FILE_ROOT .'/'. UPLOAD_DESTINATION .'/'. $basename;
 
 			// upload the image
 			if (!in_array(strtolower($ext), self::$allowed_exts)) {

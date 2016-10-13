@@ -75,11 +75,13 @@ class Products extends Dashboard
 
 			$this->runPage('products/create', $data);
 		} else {
+			$visible = !empty($_POST['visible']) ? $_POST['visible'] : false;
+
 			// TODO: use an array!
 			if ($this->model->saveProduct(
 					$_POST['title'],
 					$_POST['content'],
-					$_POST['visible'],
+					$visible,
 					$_FILES['images'])) {
 
 				header('location: /ArtomiSys2/dashboard/products/view/'.$this->model->lastId());
@@ -112,11 +114,12 @@ class Products extends Dashboard
 			// Delete images from database too!
 			$this->model->deleteImgs($removables);
 			$oldImgs = $this->model->deleteRemovedImgs($_POST['oldImgs'], $removables);
+			$visible = !empty($_POST['visible']) ? $_POST['visible'] : false;
 
 			if ($this->model->saveProduct(
 									$_POST['title'], 
 									$_POST['content'],
-									$_POST['visible'],
+									$visible,
 									$_FILES['images'],
 									$oldImgs,
 									$id)) {
