@@ -3,34 +3,22 @@
 <p>Tuotekatalogissa esittelemme myytävissä olevaa kalustoamme. Voit tutustua tarjontaamme katalogin kautta ennen ostopäätöstä. Voit tutustua kalustoomme myös paikan päällä. Jos jokin tuote vaikuttaa kiinnostavalta, ota meihin yhteyttä sähköpostilla tai matkapuhelimella. Soittamalla asia yleensä hoituu nopeiten.</p>
 <p>Huomaathan, että katalogissa on näkyvissä vain pieni osa tuotteistamme!</p>
 
-<div id="products">
+<div id="products-list" class="text-center">
 
-<div style="text-align: center;">
 <?php
-
-
-
+/* Preview images */
 foreach ($this->products as $product) {
 	echo "
 		<a href='/ArtomiSys2/products/" . $product['id'] ."'>
 			<div class='preview'>
-				<div class='img'>
+				<span class='helper'></span>
+				<div class='preview-img'>
 					<img src='". $product['previewImg'] ."'>
 				</div>
 				<p><b>". $product['title'] ."</b></p>
 			</div>
 		</a>";
 }
-
-/*
-
-<div style=''><h2>". $value['title'] ."</h2>
-	<span style='font-style: cursive; color: #CCCCCC;'>". $value['date'] ."</span>
-	<p>". $value['content'] ."</p>
-</div>"
-
-*/
-
-//var_dump($this->products);
 ?>
+
 </div>

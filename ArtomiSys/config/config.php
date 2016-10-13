@@ -31,7 +31,7 @@ switch(APP_ENV) {
 		/* FILES */
 
 		define('UPLOAD_DESTINATION', 'public/uploads/products');
-		define('DEFAULT_PREVIEW_IMG', 'public/img/catalogue_no_img.png');
+		define('DEFAULT_PREVIEW_IMG', 'public/img/no-image.png');
 		define('UPLOAD_MAX_SIZE', 1000000);
 
 		break;
@@ -64,7 +64,7 @@ switch(APP_ENV) {
 		/* FILES */
 
 		define('UPLOAD_DESTINATION', 'public/uploads/products');
-		define('DEFAULT_PREVIEW_IMG', 'public/img/catalogue_no_img.png');
+		define('DEFAULT_PREVIEW_IMG', 'public/img/no-image.png');
 		define('UPLOAD_MAX_SIZE', 1000000);
 
 		break;
