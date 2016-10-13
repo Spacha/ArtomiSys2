@@ -4,7 +4,7 @@ namespace ArtomiSys\Libs;
 
 Class Log
 {
-	public static function write(string $str, $type = 'DEFAULT')
+	public static function write($str, $type = 'DEFAULT')
 	{
 		if(strlen($str) <= 0) return false;
 

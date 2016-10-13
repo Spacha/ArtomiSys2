@@ -39,7 +39,7 @@ class Test extends Controller
 		}
 	}
 
-	public function deleteSingleImg(string $image)
+	public function deleteSingleImg($image)
 	{
 		return $this->delete([$image]);
 	}

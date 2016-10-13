@@ -21,7 +21,7 @@ class Controller
 	/**
 	* Move this to a specific ExtendedController class or sth!
 	*/
-	public function throwMsg(string $msg, $type = 1)
+	public function throwMsg($msg, $type = 1)
 	{
 	}
 }

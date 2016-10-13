@@ -15,7 +15,7 @@ class Helper
 	* @param {string} str validatable string
 	* @return {string} validated string 
 	*/
-	public static function validateInput(string $str)
+	public static function validateInput($str)
 	{
 		return trim(htmlspecialchars($str));
 	}
@@ -25,7 +25,7 @@ class Helper
 	* @param {string} containing image names (separated by commas)
 	* @return {array} image names
 	*/
-	public static function extractImgsStr(string $str)
+	public static function extractImgsStr($str)
 	{
 		if (strlen($str) <= 0) {
 			return array();
@@ -46,7 +46,7 @@ class Helper
 	* @param (string) imgs containing image names (separated by commas)
 	* @return (string) image with full path
 	*/
-	public static function previewImgs(string $imgs)
+	public static function previewImgs($imgs)
 	{
 		$previewImg = DEFAULT_PREVIEW_IMG;
 

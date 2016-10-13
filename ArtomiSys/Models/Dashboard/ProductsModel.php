@@ -29,7 +29,7 @@ class ProductsModel extends Model
 
 		foreach($products as &$product) {
 			$product['date'] = date(DATE_FORM, $product['date']);
-			$product['previewImg'] = Helper::previewImgs($product['images']);
+			 $product['previewImg'] = Helper::previewImgs($product['images']);
 		}
 
 		return $products;
@@ -130,7 +130,7 @@ class ProductsModel extends Model
 	/**
 	*	TODO: Consider a more describing name!
 	*/
-	public function deleteRemovedImgs(string $all, array $removed)
+	public function deleteRemovedImgs($all, array $removed)
 	{
 		$all = Helper::extractImgsStr($all);
 		return array_diff($all, $removed);
