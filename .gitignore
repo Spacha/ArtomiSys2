@@ -1,3 +1,8 @@
+public/uploads/
+public_html/uploads/
+
+.*
+
 #**************#
 # Sublime Text #
 #**************#
