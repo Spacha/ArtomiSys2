@@ -1,6 +1,28 @@
-public/uploads
-public_html/uploads
+public/uploads/
+public_html/uploads/
 ArtomiSys/logs/
+
+.*
+>>>>>>> origin/master
+
+#**************#
+# Sublime Text #
+#**************#
+
+*.sublime-workspace
+*.sublime-project
+
+
+#*********#
+# Uploads #
+#*********#
+
+public/uploads/
+public_html/uploads/
+
+#************#
+# I love Mac #
+#************#
 
 .DS_STORE
 
