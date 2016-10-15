@@ -1,8 +1,8 @@
 <h1 style="display: inline-block; width: 100%;">
 <span style="font-size: 80%;"><?=$this->product['title'];?></span>
 	<span class="hotbar">
-		<a href="/ArtomiSys2/dashboard/products/edit/<?=$this->product['id'];?>" class="btn icon icon-edit">Muokkaa</a>
-		<a href="/ArtomiSys2/dashboard/products/delete/<?=$this->product['id'];?>" class="btn icon icon-delete">Poista</a>
+		<a href="<?=ROOT_DIR?>/dashboard/products/edit/<?=$this->product['id'];?>" class="btn icon icon-edit">Muokkaa</a>
+		<a href="<?=ROOT_DIR?>/dashboard/products/delete/<?=$this->product['id'];?>" class="btn icon icon-delete">Poista</a>
 	</span>
 </h1>
 
@@ -12,7 +12,7 @@
 <?php
 
 foreach($this->product['images'] as $img) {
-	$img = '/ArtomiSys2/'. UPLOAD_DESTINATION .'/'. $img;
+	$img = ROOT_DIR .'/uploads/products/'. $img;
 	echo '<img style="height: 160px; margin: 0 2px;" src="'.$img.'"/>';
 }
 ?>
@@ -36,4 +36,4 @@ foreach($this->product['images'] as $img) {
 
 </div>
 
-<a href="/ArtomiSys2/dashboard/products" class="btn icon icon-back" style="font-size: 100%;">Takaisin</a>
+<a href="<?=ROOT_DIR?>/dashboard/products" class="btn icon icon-back" style="font-size: 100%;">Takaisin</a>

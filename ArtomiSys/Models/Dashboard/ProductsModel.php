@@ -144,10 +144,10 @@ class ProductsModel extends Model
 	{
 		// TODO: remove related images too!
 		if ($this->db->delete('products', 'id = '.$id) > 0) {
-			header('location: /ArtomiSys2/dashboard/products');
+			header('location: '. ROOT_DIR .'/dashboard/products');
 		} else {
 			// set an error here!
-			header('location: /ArtomiSys2/dashboard/products/view/'.$id);
+			header('location: '. ROOT_DIR .'/dashboard/products/view/'.$id);
 		}
 	}
 

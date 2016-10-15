@@ -27,16 +27,16 @@ class Login extends Dashboard
 			$password = htmlspecialchars($_POST['password']);
 
 			if ($this->model->tryLogin($username, $password)) {
-				header('location: /ArtomiSys2/dashboard');
+				header('location: '. ROOT_DIR .'/dashboard');
 				return true;
 			} else {
-				header('location: /ArtomiSys2/dashboard/login');
+				header('location: '. ROOT_DIR .'/dashboard/login');
 				return false;
 			}
 		} else {
 			if (isset($_SESSION['loggedin'])) {
 				$this->model->logout();
-				header('location: /ArtomiSys2/dashboard/login');
+				header('location: '. ROOT_DIR .'/dashboard/login');
 			}
 
 			// show login form
@@ -52,6 +52,6 @@ class Login extends Dashboard
 	public function logout()
 	{
 		$this->model->logout();
-		header('location: /ArtomiSys2/dashboard/login');
+		header('location: '. ROOT_DIR .'/dashboard/login');
 	}
 }

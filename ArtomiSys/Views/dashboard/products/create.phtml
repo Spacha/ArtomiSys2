@@ -1,9 +1,9 @@
 <h1 style="display: inline-block; width: 100%;">
 	Luo uusi tuote
-	<span class="hotbar"><a href="/ArtomiSys2/dashboard/index/guide#create-new-product" target="_blank" class="btn icon icon-help">Apua</a></span>
+	<span class="hotbar"><a href="<?=ROOT_DIR?>/dashboard/index/guide#create-new-product" target="_blank" class="btn icon icon-help">Apua</a></span>
 </h1>
 
-<form action="/ArtomiSys2/dashboard/products/create/save" method="post" enctype="multipart/form-data">
+<form action="<?=ROOT_DIR?>/dashboard/products/create/save" method="post" enctype="multipart/form-data">
 	<p><b>Otsikko: </b></p>
 	<p><input type="text" name="title"/></p>
 	<p><b>Kuvaus: </b></p>
@@ -15,5 +15,5 @@
 		<label for="images">Valitse kuvia</label>
 	</p>
 
-	<p><a href="/ArtomiSys2/dashboard/products" class="btn icon icon-back" style="font-size: 100%;">Peruuta</a> <input type="submit" class="btn" style="font-size: 100%;" value="Valmis"/></p>
+	<p><a href="<?=ROOT_DIR?>/dashboard/products" class="btn icon icon-back" style="font-size: 100%;">Peruuta</a> <input type="submit" class="btn" style="font-size: 100%;" value="Valmis"/></p>
 </form>

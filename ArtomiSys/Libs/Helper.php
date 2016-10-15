@@ -55,11 +55,9 @@ class Helper
 		
 		$imgs = self::extractImgsStr($imgs);
 
-		$first = UPLOAD_DESTINATION . "/" . $imgs[0];
-
 		// if first image exists, set it
-		if (file_exists(PATH_FILE_ROOT . "/" . $first)) {
-			$previewImg = PATH_ROOT . "/" . $first;
+		if (file_exists(UPLOAD_DESTINATION . "/" . $imgs[0])) {
+			$previewImg = ROOT_DIR . "/uploads/products/" . $imgs[0];
 		}
 
 		return $previewImg;

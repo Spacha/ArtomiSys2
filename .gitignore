@@ -1,3 +1,9 @@
+public/uploads
+public_html/uploads
+ArtomiSys/logs/
+
+.DS_STORE
+
 #**************#
 # Sublime Text #
 #**************#

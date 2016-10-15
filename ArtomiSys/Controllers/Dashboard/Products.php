@@ -5,6 +5,7 @@
 * DONE: View images on 'View Product' section
 * DONE: Remove old images on edit
 *
+* TODO: Upload destination to ArtomiSys/ folder!
 * TODO: Upload new images on edit
 * TODO: More clear and easier upload field (js)!
 *
@@ -52,7 +53,7 @@ class Products extends Dashboard
 	{
 		$product = $this->model->fetchProductData($id);
 
-		if ($id == 0 || empty($product)) header('location: /ArtomiSys2/dashboard/products');
+		if ($id == 0 || empty($product)) header('location: '. ROOT_DIR .'/dashboard/products');
 
 		$data = [
 			'title' => $product['title'],
@@ -84,9 +85,9 @@ class Products extends Dashboard
 					$visible,
 					$_FILES['images'])) {
 
-				header('location: /ArtomiSys2/dashboard/products/view/'.$this->model->lastId());
+				header('location: '. ROOT_DIR .'/dashboard/products/view/'.$this->model->lastId());
 			} else {
-				header('location: /ArtomiSys2/dashboard/products');
+				header('location: '. ROOT_DIR .'/dashboard/products');
 			}
 		}
 	}
@@ -99,7 +100,7 @@ class Products extends Dashboard
 	public function edit($id, $save = false)
 	{
 		if (!$save) {
-			if (!isset($id)) header('location: /ArtomiSys/dashboard/products');
+			if (!isset($id)) header('location: '. ROOT_DIR .'/dashboard/products');
 			$data = [
 				'title' => 'Muokkaa tuotetta',
 				'product' => $this->model->fetchProductData($id)
@@ -124,10 +125,10 @@ class Products extends Dashboard
 									$oldImgs,
 									$id)) {
 
-				header('location: /ArtomiSys2/dashboard/products/view/'. $id);
+				header('location: '. ROOT_DIR .'/dashboard/products/view/'. $id);
 			} else {
 				// Error!
-				header('location: /ArtomiSys2/dashboard/products');
+				header('location: '. ROOT_DIR .'/dashboard/products');
 			}
 		}
 	}
@@ -154,10 +155,10 @@ class Products extends Dashboard
 			$this->model->deleteProductImgs($id);
 
 			if ($this->model->delete($id)) {
-				header('location: /ArtomiSys2/dashboard/products/');
+				header('location: '. ROOT_DIR .'/dashboard/products/');
 			} else {
 				// Error!
-				header('location: /ArtomiSys2/dashboard/products/view/'.$id);
+				header('location: '. ROOT_DIR .'/dashboard/products/view/'.$id);
 			}
 		}
 	}

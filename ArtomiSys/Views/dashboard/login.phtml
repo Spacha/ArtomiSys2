@@ -1,14 +1,14 @@
 <span id="version"><?=$this->version;?></span>
 
 <div id="login_header">
-	<img src="public/img/artomisys_header.png"/>
+	<img src="<?=ROOT_DIR?>/img/artomisys_header.png"/>
 </div>
 
 
 <div id="login">
 	<h1>Kirjaudu</h1>
 	
-	<form action="/ArtomiSys2/dashboard/login/login/true" method="post">
+	<form action="<?=ROOT_DIR?>/dashboard/login/login/true" method="post">
 		<p><input type="text" name="username" placeholder="Käyttäjätunnus"></p>
 		<p><input type="password" name="password" placeholder="Salasana"></p>
 		<input type="submit" class="btn" style="font-size: 100%;" value="Kirjaudu">

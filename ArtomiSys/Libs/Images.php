@@ -10,8 +10,6 @@ namespace Artomisys\Libs;
 
 class Images
 {
-	const UPLOAD_DESTINATION = PATH_FILE_ROOT . '/' . UPLOAD_DESTINATION;
-
 	protected static $allowed_exts = ['jpg','jpeg','png','gif'];
 
 	/**
@@ -48,7 +46,7 @@ class Images
 			$ext = pathinfo($images['name'][$i])['extension'];
 
 			$basename = 'img_'. date("Y-m-d") .'-'. uniqid() .'.'.$ext;
-			$new_name = PATH_FILE_ROOT .'/'. UPLOAD_DESTINATION .'/'. $basename;
+			$new_name = UPLOAD_DESTINATION .'/'. $basename;
 
 			// upload the image
 			if (!in_array(strtolower($ext), self::$allowed_exts)) {
@@ -72,7 +70,7 @@ class Images
 	* @param string path you want the images to remove from
 	* @return array containing names of successfully removed images
 	*/
-	public static function delete(array $images, $path = self::UPLOAD_DESTINATION)
+	public static function delete(array $images, $path = UPLOAD_DESTINATION)
 	{
 		$removed = [];
 

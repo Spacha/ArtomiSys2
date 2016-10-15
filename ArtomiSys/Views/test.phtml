@@ -1,5 +1,5 @@
 <!--
-<form action="/ArtomiSys2/test/index/true" method="post" enctype="multipart/form-data">
+<form action="<?=ROOT_DIR?>/test/index/true" method="post" enctype="multipart/form-data">
 	<input type="file" name="images[]" multiple/>
 	<input type="submit" value="Submit"/>
 </form>
@@ -12,7 +12,7 @@ $uploads = scandir(PATH_FILE_ROOT.'/'.UPLOAD_DESTINATION);
 
 foreach($uploads as $file) {
 	if (in_array(pathinfo($file, PATHINFO_EXTENSION), $allowed_exts)) {
-		echo '<li>'.$file.' <a href="/ArtomiSys2/test/deleteSingleImg/'.$file.'">Delete</a></li>';
+		echo '<li>'.$file.' <a href="<?=ROOT_DIR?>/test/deleteSingleImg/'.$file.'">Delete</a></li>';
 	}
 }
 

@@ -1,45 +1,30 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Kuljetus & Konepaja Artomi Oy</title>
-		<meta charset="UTF-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		
-		<meta name="description" content="Kuljetus & konepaja Artomi Oy on Vihannissa toimiva kuljetusalan ja koneistuksen ammattilainen." />
-		<meta name="keywords" content="Kuljetus Artomi Oy, metallityöt, koneistukset, Vihanti, kuorma-autokuljetukset, kuljetukset, konepaja" />
-		
-		<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/css/main.css"/>
-	</head>
-	<body>
+<div id="top">
+	<div class="wrapper">
+		<div style="background: rgba(0,0,0,0.8); float: right; width: 200px; padding: 20px 60px; color: #EEE; border-right: 1px solid #CCC; border-left: 1px solid #CCC;">
+			<h2 class="info">Artomi Oy</h2>
+			<p>
+				<b>Arto:</b> 050 028 6549
+			</p>
 
-	<div id="top">
-		<div class="wrapper">
-			<div style="background: rgba(0,0,0,0.8); float: right; width: 200px; padding: 20px 60px; color: #EEE; border-right: 1px solid #CCC; border-left: 1px solid #CCC;">
-				<h2 class="info">Artomi Oy</h2>
-				<p>
-					<b>Arto:</b> 050 028 6549
-				</p>
-
-				<p>Halavatie 1, 86400 VIHANTI</p>
-			</div>
-			<p style="clear: both;"></p>
+			<p>Halavatie 1, 86400 VIHANTI</p>
 		</div>
+		<p style="clear: both;"></p>
 	</div>
+</div>
 
-	<nav class="navbar">
+<nav class="navbar">
 
-		<div class="wrapper">
-			<a class="navbar-brand" href="#">
-				<img src="public/img/logo.png" alt="Artomi Oy">
-			</a>
+	<div class="wrapper">
+		<a class="navbar-brand" href="#">
+			<img src="<?=ROOT_DIR?>/img/logo.png" alt="Artomi Oy">
+		</a>
 
-			<ul class="top-nav">
-				<li><a href="/ArtomiSys2/"<?php if ($this->active == 'index') : ?> class="active"<?php endif;?>>Etusivu</a></li>
-				<li><a href="/ArtomiSys2/services"<?php if ($this->active == 'services') : ?> class="active"<?php endif;?>>Palvelumme</a></li>
-				<li><a href="/ArtomiSys2/products"<?php if ($this->active == 'products') : ?> class="active"<?php endif;?>>Tuotteet</a></li>
-				<li><a href="/ArtomiSys2/gallery"<?php if ($this->active == 'gallery') : ?> class="active"<?php endif;?>>Galleria</a></li>
-				<li><a href="/ArtomiSys2/contact"<?php if ($this->active == 'contact') : ?> class="active"<?php endif;?>>Ota yhteyttä</a></li>
-			</ul>
-		</div>
-	</nav>
+		<ul class="top-nav">
+			<li><a href="<?=ROOT_DIR?>/"<?php if ($this->active == 'index') : ?> class="active"<?php endif;?>>Etusivu</a></li>
+			<li><a href="<?=ROOT_DIR?>/services"<?php if ($this->active == 'services') : ?> class="active"<?php endif;?>>Palvelumme</a></li>
+			<li><a href="<?=ROOT_DIR?>/products"<?php if ($this->active == 'products') : ?> class="active"<?php endif;?>>Tuotteet</a></li>
+			<li><a href="<?=ROOT_DIR?>/gallery"<?php if ($this->active == 'gallery') : ?> class="active"<?php endif;?>>Galleria</a></li>
+			<li><a href="<?=ROOT_DIR?>/contact"<?php if ($this->active == 'contact') : ?> class="active"<?php endif;?>>Ota yhteyttä</a></li>
+		</ul>
+	</div>
+</nav>

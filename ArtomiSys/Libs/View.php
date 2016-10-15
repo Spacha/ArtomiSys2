@@ -28,7 +28,7 @@ class View
 	{
 		// load default css file
 		if (empty($this->css)) $this->css = 'main.css';
-		$this->css = PATH_TO_CSS .'/'. $this->css;
+		$this->css = ROOT_DIR .'/css/'. $this->css;
 
 		// page title
 		if (!isset($this->title)) $this->title = APP_NAME;

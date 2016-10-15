@@ -1,8 +1,8 @@
 <h1 style="display: inline-block; width: 100%;">
 	Tuotteet <span class="header-count"><?=$this->productsCount;?></span>
 	<span class="hotbar">
-		<a href="/ArtomiSys2/dashboard/products/create" class="btn icon icon-plus">Lisää tuote</a>
-		<a href="/ArtomiSys2/dashboard/index/guide#products" target="_blank" class="btn icon icon-help">Apua</a>
+		<a href="<?=ROOT_DIR?>/dashboard/products/create" class="btn icon icon-plus">Lisää tuote</a>
+		<a href="<?=ROOT_DIR?>/dashboard/index/guide#products" target="_blank" class="btn icon icon-help">Apua</a>
 	</span>
 </h1>
 
@@ -15,11 +15,11 @@
 foreach($this->products as $product) {
 	echo "<tr>
 		<td>{$product['id']}</td>
-		<td><a href=\"/ArtomiSys2/dashboard/products/view/{$product['id']}\">{$product['title']}</a></td>
+		<td><a href=\"". ROOT_DIR ."/dashboard/products/view/{$product['id']}\">{$product['title']}</a></td>
 		<td><input type=\"checkbox\" ".($product['visible'] ? "checked" : "")." disabled/></td>
 		<td>{$product['date']}</td>
-		<td><a href=\"/ArtomiSys2/dashboard/products/edit/{$product['id']}\">Muokkaa</a> /
-		<a href=\"/ArtomiSys2/dashboard/products/delete/{$product['id']}\">Poista</a></td>
+		<td><a href=\"". ROOT_DIR ."/dashboard/products/edit/{$product['id']}\">Muokkaa</a> /
+		<a href=\"". ROOT_DIR ."/dashboard/products/delete/{$product['id']}\">Poista</a></td>
 		</tr>";
 }
 ?>
@@ -27,7 +27,7 @@ foreach($this->products as $product) {
 
 <div id="list-empty">
 	<div>
-		<img src="public/img/icons/info.png"/>
+		<img src="<?=ROOT_DIR?>/img/icons/info.png"/>
 		<p>Ei tuotteita tällä hetkellä.</p>
 	</div>
 </div>

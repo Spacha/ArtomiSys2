@@ -36,7 +36,7 @@ class Products extends StaticPages
 	{
 		$product = $this->model->fetchProductData($id, true);
 
-		if ($id == 0 || empty($product)) header('location: /ArtomiSys2/products');
+		if ($id == 0 || empty($product)) header('location: '. ROOT_DIR .'/products');
 
 		// $this->statistics->set();
 		$this->runPage('products_view', [

@@ -39,10 +39,10 @@ class Settings extends Dashboard
 				$_POST['newPassword'],
 				$_POST['repeatNewPassword'])) {
 			$this->statistics->set(['passwordChanged' => date("U")]);
-			header('location: /ArtomiSys2/dashboard/login');
+			header('location: '. ROOT_DIR .'/dashboard/login');
 		} else {
 			// Error!
-			header('location: /ArtomiSys2/dashboard/settings');
+			header('location: '. ROOT_DIR .'/dashboard/settings');
 		}
 	}
 }

@@ -58,7 +58,7 @@ class Dashboard extends Controller
 
 		if ($this->requireLogin) {
 			if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-				header('location: /ArtomiSys2/dashboard/login');
+				header('location: '. ROOT_DIR .'/dashboard/login');
 				return false;
 			}
 		}

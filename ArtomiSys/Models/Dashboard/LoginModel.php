@@ -29,7 +29,7 @@ class LoginModel extends Model
 			return true;
 		} else {
 			// TODO: Return message: Invalid username or password
-			header('location: /ArtomiSys2/dashboard/login');
+			header('location: '. ROOT_DIR .'/dashboard/login');
 			return false;
 		}
 	}
