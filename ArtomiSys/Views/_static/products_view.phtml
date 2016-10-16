@@ -9,10 +9,16 @@ if(isset($this->product['images']) && !empty($this->product['images'])) {
 	}
 }
 
+if (!empty($this->product['content'])) {
+	$content = $this->product['content'];
+} else {
+	$content = "Ei kuvausta";
+}
+
 echo "
 	<div style=''><h2>". $this->product['title'] ."</h2>
 	<span style='font-style: cursive; color: #CCCCCC;'>". $this->product['date'] ."</span>
-	<p>". $this->product['content'] ."</p>
+	<p>". $content ."</p>
 </div>";
 
 ?>

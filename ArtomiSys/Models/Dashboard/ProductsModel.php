@@ -64,7 +64,7 @@ class ProductsModel extends Model
 		$title,
 		$content,
 		$visible,
-		array $images = [] ,
+		array $images = [],
 		$oldImgs = [],
 		$id = 0,
 		$uniqid = 0)
@@ -142,20 +142,28 @@ class ProductsModel extends Model
 	*/
 	public function delete($id)
 	{
-		// TODO: remove related images too!
-		if ($this->db->delete('products', 'id = '.$id) > 0) {
-			header('location: '. ROOT_DIR .'/dashboard/products');
-		} else {
-			// set an error here!
-			header('location: '. ROOT_DIR .'/dashboard/products/view/'.$id);
+		$images = $this->fetchProductData($id, false, 'images');
+
+		if ($this->db->delete('products', 'id = '.$id)) {
+
+			if (is_array($images['images'])) {
+				$this->deleteImgs($images['images']);
+			}
+
+			return true;
 		}
+
+		return false;
 	}
 
+	/**
+	* Not needed anymore ?
+	*/
 	public function deleteProductImgs($id)
 	{
 		// $sql = "SELECT images FROM products WHERE id = :id";
 		// $this->db->select($sql, [':id' => $id], false);
-		$images = $this->fetchProductData($id, 'images');
+		$images = $this->fetchProductData($id, false, 'images');
 		//$images = $images['images'];
 
 		if (is_array($images['images'])) {

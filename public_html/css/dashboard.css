@@ -55,6 +55,39 @@ input[type=file]:focus + label {
 
 /* CLASSES */
 
+/* Notifications */
+
+.notification {
+	position: fixed;
+	z-index: 1000;
+	width: 400px;
+	top: 100px;
+	left: 50%;
+	margin-left: -200px;
+	max-width: 100%;
+	box-sizing: border-box;
+
+	text-align: center;
+	padding: 15px;
+	border-radius: 0.4em;
+	box-shadow: 1px 1px 8px rgba(0,0,0,0.3);
+
+	/* for fading effect */
+	opacity: 0;
+}
+
+.notification-success {
+	background: #c4e2b7;
+	color: #538c53;
+	border: 1px solid #95a28a;
+}
+
+.notification-error {
+	background: #f56c6c;
+	color: #5d2929;
+	border: 1px solid #985151;
+}
+
 .wrapper {
 	width: 1000px;
 	max-width: 95%;

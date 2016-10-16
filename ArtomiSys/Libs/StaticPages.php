@@ -32,6 +32,8 @@ class StaticPages extends Controller
 			$this->view->active = $section;
 			$this->view->snippets['header'] = 'header';
 		}
+		
+		$this->view->snippets['footer'] = 'footer';
 
 		// Load correct css file
 		$this->view->css = 'main.css';

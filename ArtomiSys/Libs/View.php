@@ -44,7 +44,21 @@ class View
 			ob_get_clean();
 		}
 		
+		// print out the actual page
 		require($this->templateFile);
+	}
+
+	public function setNotification($msg, $type = 'success')
+	{
+		$_SESSION['notification']['message'] = $msg;
+		$_SESSION['notification']['type'] = $type;
+	}
+
+	public function clearNotification()
+	{
+		if (!empty($_SESSION['notification'])) {
+			$_SESSION['notification'] = [];
+		}
 	}
 
 	/**

@@ -24,8 +24,25 @@
 		<div id="header">
 		<?=!empty($this->snippets['header']) ? $this->snippets['header'] : '';?>
 		</div>
+		
+		<?php if(!empty($_SESSION['notification'])): ?>
+		
+		<!-- Show notification -->
+
+		<div id="notification" class="notification notification-<?=$_SESSION['notification']['type']?>">
+			<?=$_SESSION['notification']['message']?>
+			<?php $this->clearNotification()?>
+		</div>
+
+		<?php endif ?>
+		
 		<div class="wrapper">
 		<?=$this->output;?>
 		</div>
+
+		<?=!empty($this->snippets['footer']) ? $this->snippets['footer'] : '';?>
+
+		<!-- Javascripts -->
+		<script type="text/javascript" src="<?=ROOT_DIR?>/js/main.js"></script>
 	</body>
 </html>

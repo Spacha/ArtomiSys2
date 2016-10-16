@@ -12,8 +12,8 @@ foreach ($this->products as $product) {
 		<a href='". ROOT_DIR ."/products/" . $product['id'] ."'>
 			<div class='preview'>
 				<span class='helper'></span>
-				<div class='preview-img'>
-					<img src='". $product['previewImg'] ."'>
+				<div class='preview-img-container'>
+					<img class='preview-img' src='". $product['previewImg'] ."'>
 				</div>
 				<p><b>". $product['title'] ."</b></p>
 			</div>

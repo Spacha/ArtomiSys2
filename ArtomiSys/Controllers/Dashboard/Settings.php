@@ -39,9 +39,11 @@ class Settings extends Dashboard
 				$_POST['newPassword'],
 				$_POST['repeatNewPassword'])) {
 			$this->statistics->set(['passwordChanged' => date("U")]);
-			header('location: '. ROOT_DIR .'/dashboard/login');
+			$this->view->setNotification('Salasanan vaihto onnistui!', 'success');
+			header('location: '. ROOT_DIR .'/dashboard/settings');
 		} else {
 			// Error!
+			$this->view->setNotification('Salasanan vaihto epäonnistui! Yritä uudelleen.', 'error');
 			header('location: '. ROOT_DIR .'/dashboard/settings');
 		}
 	}

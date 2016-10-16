@@ -4,11 +4,12 @@
 * DONE: Image upload on create
 * DONE: View images on 'View Product' section
 * DONE: Remove old images on edit
+* DONE: Upload new images on edit
 *
 * TODO: Upload destination to ArtomiSys/ folder!
-* TODO: Upload new images on edit
 * TODO: More clear and easier upload field (js)!
 *
+* OPTIONAL: Timed product visibility (remove/hide after certain time)
 * OPTIONAL: Bound captions to images
 */
 
@@ -85,8 +86,10 @@ class Products extends Dashboard
 					$visible,
 					$_FILES['images'])) {
 
+				$this->view->setNotification('Tuotteen lisäys onnistui!', 'success');
 				header('location: '. ROOT_DIR .'/dashboard/products/view/'.$this->model->lastId());
 			} else {
+				$this->view->setNotification('Tuotteen lisäys epäonnistui!', 'error');
 				header('location: '. ROOT_DIR .'/dashboard/products');
 			}
 		}
@@ -125,9 +128,11 @@ class Products extends Dashboard
 									$oldImgs,
 									$id)) {
 
+				$this->view->setNotification('Tuote tallennettu.', 'success');
 				header('location: '. ROOT_DIR .'/dashboard/products/view/'. $id);
 			} else {
 				// Error!
+				$this->view->setNotification('Tuotteen tallennus epäonnistui!', 'error');
 				header('location: '. ROOT_DIR .'/dashboard/products');
 			}
 		}
@@ -152,12 +157,14 @@ class Products extends Dashboard
 			$this->runPage('products/delete', $data);
 		} else {
 			// Actually delete the product and images related to it
-			$this->model->deleteProductImgs($id);
 
 			if ($this->model->delete($id)) {
+				// Success!
+				$this->view->setNotification('Tuotteen poistaminen onnistui!', 'success');
 				header('location: '. ROOT_DIR .'/dashboard/products/');
 			} else {
 				// Error!
+				$this->view->setNotification('Tuotteen poistaminen epäonnistui!', 'error');
 				header('location: '. ROOT_DIR .'/dashboard/products/view/'.$id);
 			}
 		}
