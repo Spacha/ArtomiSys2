@@ -11,15 +11,12 @@
 		<p style="clear: both;"></p>
 	</div>
 </div>
-
-<nav class="navbar">
-
+<div id="header">
 	<div class="wrapper">
-		<a class="navbar-brand" href="#">
-			<img src="<?=ROOT_DIR?>/img/logo.png" alt="Artomi Oy">
+		<a href="#">
+			<img src="<?=ROOT_DIR?>/img/logo.png" id="logo" alt="Artomi Oy"/>
 		</a>
-
-		<ul class="top-nav">
+		<ul id="nav">
 			<li><a href="<?=ROOT_DIR?>/"<?php if ($this->active == 'index') : ?> class="active"<?php endif;?>>Etusivu</a></li>
 			<li><a href="<?=ROOT_DIR?>/services"<?php if ($this->active == 'services') : ?> class="active"<?php endif;?>>Palvelumme</a></li>
 			<li><a href="<?=ROOT_DIR?>/products"<?php if ($this->active == 'products') : ?> class="active"<?php endif;?>>Tuotteet</a></li>
@@ -27,4 +24,4 @@
 			<li><a href="<?=ROOT_DIR?>/contact"<?php if ($this->active == 'contact') : ?> class="active"<?php endif;?>>Ota yhteyttä</a></li>
 		</ul>
 	</div>
-</nav>
+</div>

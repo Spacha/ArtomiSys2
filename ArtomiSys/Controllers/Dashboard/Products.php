@@ -6,6 +6,7 @@
 * DONE: Remove old images on edit
 * DONE: Upload new images on edit
 *
+* TODO: Validation! IMPORTANT
 * TODO: Upload destination to ArtomiSys/ folder!
 * TODO: More clear and easier upload field (js)!
 *

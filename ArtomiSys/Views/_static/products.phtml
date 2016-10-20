@@ -1,24 +1,30 @@
-<h1>Products</h1>
+<div class="wrapper">
+	<h1>Products<?=count($this->products) > 0 ? ' <span class="sub-h">'.count($this->products).'</span>' : ''?></h1>
 
-<p>Tuotekatalogissa esittelemme myytävissä olevaa kalustoamme. Voit tutustua tarjontaamme katalogin kautta ennen ostopäätöstä. Voit tutustua kalustoomme myös paikan päällä. Jos jokin tuote vaikuttaa kiinnostavalta, ota meihin yhteyttä sähköpostilla tai matkapuhelimella. Soittamalla asia yleensä hoituu nopeiten.</p>
-<p>Huomaathan, että katalogissa on näkyvissä vain pieni osa tuotteistamme!</p>
+	<p>Tuotekatalogissa esittelemme myytävissä olevaa kalustoamme. Voit tutustua tarjontaamme katalogin kautta ennen ostopäätöstä. Voit tutustua kalustoomme myös paikan päällä. Jos jokin tuote vaikuttaa kiinnostavalta, ota meihin yhteyttä sähköpostilla tai matkapuhelimella. Soittamalla asia yleensä hoituu nopeiten.</p>
+	<p>Huomaathan, että katalogissa on näkyvissä vain pieni osa tuotteistamme!</p>
 
-<div id="products-list" class="text-center">
+	<div id="products">
 
-<?php
-/* Preview images */
-foreach ($this->products as $product) {
-	echo "
-		<a href='". ROOT_DIR ."/products/" . $product['id'] ."'>
-			<div class='preview'>
-				<span class='helper'></span>
-				<div class='preview-img-container'>
-					<img class='preview-img' src='". $product['previewImg'] ."'>
-				</div>
-				<p><b>". $product['title'] ."</b></p>
-			</div>
-		</a>";
-}
-?>
+	<?php
+	/* Preview images */
+	if (count($this->products) > 0) {
+		foreach ($this->products as $product) {
+			echo "
+				<a href='". ROOT_DIR ."/products/" . $product['id'] ."'>
+					<div class='preview'>
+						<div class='img'>
+							<img src='". $product['previewImg'] ."'>
+						</div>
+						<p><b>". $product['title'] ."</b></p>
+					</div>
+				</a>";
+		}
+	} else {
+		// show message 'no products'
+		echo "<div class='no-content'>Ei myytäviä tuotteita tällä hetkellä.</div>";
+	}
+	?>
 
+	</div>
 </div>

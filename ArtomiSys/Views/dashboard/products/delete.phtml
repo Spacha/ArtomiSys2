@@ -1,15 +1,17 @@
-<center>
+<div class="wrapper">
+	<center>
 
-<h1>Haluatko varmasti poistaa tuotteen?</h1>
+	<h1>Haluatko varmasti poistaa tuotteen?</h1>
 
-<div class="block" style="display: inline-block;">
-<span style="font-size: 110%;">
-<p>Otsikko: "<i><?=$this->product['title'];?></i>"</br>
-Luotu: <strong><?=$this->product['date'];?></strong></p>
-</span>
+	<div class="block" style="display: inline-block;">
+	<span style="font-size: 110%;">
+	<p>Otsikko: "<i><?=$this->product['title'];?></i>"</br>
+	Luotu: <strong><?=$this->product['date'];?></strong></p>
+	</span>
 
-<a href="<?=ROOT_DIR?>/dashboard/products/delete/<?=$this->product['id'];?>/true" class="btn" style="font-size: 100%; width: 150px;">Poista</a>
-<a href="<?=ROOT_DIR?>/dashboard/products" class="btn" style="font-size: 100%; width: 150px;">Peruuta</a>
+	<a href="<?=ROOT_DIR?>/dashboard/products/delete/<?=$this->product['id'];?>/true" class="btn" style="font-size: 100%; width: 150px;">Poista</a>
+	<a href="<?=ROOT_DIR?>/dashboard/products" class="btn" style="font-size: 100%; width: 150px;">Peruuta</a>
+	</div>
+
+	</center>
 </div>
-
-</center>

@@ -21,9 +21,7 @@
 		?>
 	</head>
 	<body>
-		<div id="header">
 		<?=!empty($this->snippets['header']) ? $this->snippets['header'] : '';?>
-		</div>
 		
 		<?php if(!empty($_SESSION['notification'])): ?>
 		
@@ -36,9 +34,7 @@
 
 		<?php endif ?>
 		
-		<div class="wrapper">
 		<?=$this->output;?>
-		</div>
 
 		<?=!empty($this->snippets['footer']) ? $this->snippets['footer'] : '';?>
 
