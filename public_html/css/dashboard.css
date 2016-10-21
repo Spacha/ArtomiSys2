@@ -88,6 +88,10 @@ input[type=file]:focus + label {
 	border: 1px solid #985151;
 }
 
+.inline-error {
+	color: #5d2929;
+}
+
 .wrapper {
 	width: 1000px;
 	max-width: 95%;

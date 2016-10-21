@@ -12,6 +12,10 @@ html, body {
 /***************
  *   GENERAL   *
  **************/
+[href^='mailto'] {
+  direction: rtl;
+  unicode-bidi: bidi-override; }
+
 a {
   text-decoration: none;
   color: #EEE; }
@@ -27,8 +31,9 @@ li {
 
 li:before {
   margin-right: 0.3em;
-  content: 'Ô£ô ';
-  font-weight: bold; }
+  content: '✓ ';
+  font-weight: bold;
+  color: #F9CC43; }
 
 /**************
 *   GLOBALS   *
@@ -114,6 +119,17 @@ ul#nav li a.disabled:hover {
   color: #888; }
 
 /* Contents */
+.fp-img {
+  background: #333;
+  color: #FFF; }
+  .fp-img img {
+    width: 100%; }
+
+.img-bordered {
+  border: 1px solid #000;
+  margin: 10px 0;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); }
+
 #left-col {
   float: left;
   width: 100%;
@@ -128,8 +144,9 @@ ul#nav li a.disabled:hover {
 
 .side-block {
   background: rgba(0, 0, 0, 0.2);
-  padding: 10px;
-  border: 1px solid #000; }
+  border: 1px solid #000;
+  border-top: 0;
+  margin-top: 2em; }
   .side-block h3 {
     margin: -10px -6px 10px -6px;
     padding: 16px;
@@ -209,6 +226,15 @@ a#goto-catalog:hover {
   color: #DDD;
   margin-top: 2em; }
 
+/* Services */
+.sidebar-showcase {
+  margin: 10px 0;
+  padding: 10px;
+  text-align: center; }
+  .sidebar-showcase img {
+    width: 75%;
+    margin: 10px 0; }
+
 /* Catalogue */
 h1 span.sub-h {
   color: #F9CC43; }
@@ -247,7 +273,8 @@ h1 span.sub-h {
   width: 100%;
   height: 180px;
   white-space: nowrap;
-  padding: 1em; }
+  padding: 1em;
+  box-sizing: border-box; }
   .product-imgs img {
     vertical-align: middle;
     margin: 0 2px;
@@ -278,7 +305,10 @@ h1 span.sub-h {
     width: 68%; }
 
   #content #right {
-    width: 30%; } }
+    width: 30%; }
+
+  .side-block {
+    margin-top: 0; } }
 @media only screen and (min-width: 850px) {
   #header #logo {
     height: 60px;

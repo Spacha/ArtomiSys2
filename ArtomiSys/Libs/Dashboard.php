@@ -8,8 +8,10 @@ class Dashboard extends Controller
 {
 	protected $requireLogin = true;
 
-	public function __construct($template = 'default')
+	public function __construct($template = 'default', $useSession = false)
 	{
+		if ($useSession) $this->startSession();
+
 		$this->checkAuth();
 		
 		$this->view = new View($template);
@@ -68,7 +70,11 @@ class Dashboard extends Controller
 
 	private function startSession(array $options = [])
 	{
+		// don't set up multiple sessions
+		if (session_status() !== PHP_SESSION_NONE) {
+    		return false;
+		}
 		session_set_cookie_params(0);
-		session_start($options);
+		return session_start($options);
 	}
 }

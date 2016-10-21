@@ -4,7 +4,7 @@ namespace ArtomiSys\Libs;
 
 use ArtomiSys\Libs\Log;
 
-Class UserError extends \Error
+Class UserError extends \Exception
 {
 	protected $message;
 	protected $code = 0;

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 define('PUBLIC_HTML', basename(__DIR__));
 

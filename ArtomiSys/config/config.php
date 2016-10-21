@@ -14,7 +14,7 @@ switch(APP_ENV) {
 		define('APP_NAME', 'ArtomiSys');
 
 		define('DATE_DEFAULT_TIMEZONE', 'Europe/Helsinki');
-		define('DATE_FORM', 'j.m.y \&\m\d\a\s\h; H:i');
+		define('DATE_FORM', 'j.m.y \&\n\b\s\p\; \k\l\o H:i');
 
 		/* PATHS */
 
@@ -51,7 +51,7 @@ switch(APP_ENV) {
 		define('APP_NAME', 'ArtomiSys');
 
 		define('DATE_DEFAULT_TIMEZONE', 'Europe/Helsinki');
-		define('DATE_FORM', 'j.m.y \&\m\d\a\s\h; H:i');
+		define('DATE_FORM', 'j.m.y \&\n\b\s\p\; \k\l\o H:i');
 
 		/* PATHS */
 
