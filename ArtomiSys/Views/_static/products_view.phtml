@@ -27,14 +27,17 @@
 	
 	?>
 	
-		<div style=''><h2> <?=$this->product['title']?> </h2>
-			<span style='font-style: cursive; color: #EEE;'>
-				<strong>Ilmoitus luotu:</strong> <?=$this->product['date']?>
-			</span>
-			<p> <?=nl2br($content)?> </p>
-		</div>
-		<div class="contact-banner">
-			<!-- Kiinnostuitko!? Ota yhteyttä! -->
-		</div>
+	<div style=''><h2> <?=$this->product['title']?> </h2>
+		<span style='font-style: cursive; color: #EEE;'>
+			<strong>Ilmoitus luotu:</strong> <?=$this->product['date']?>
+		</span>
+		<p> <?=nl2br($content)?> </p>
+	</div>
+</div>
+
+<div class="contact-banner">
+	<div class="wrapper">
+		<img src="<?=ROOT_DIR?>/img/phone.png">
+		<p>Kiinnostuitko? Ota yhteyttä puhelimitse tai sähköpostilla.</p>
 	</div>
 </div>
