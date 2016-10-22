@@ -11,6 +11,18 @@
 	<form action="<?=ROOT_DIR?>/dashboard/login/login/true" method="post">
 		<p><input type="text" name="username" placeholder="Käyttäjätunnus"></p>
 		<p><input type="password" name="password" placeholder="Salasana"></p>
+
+		<?php if(!empty($_SESSION['notification'])): ?>
+		
+		<!-- Show notification -->
+
+		<div id="notification" class="inline-error">
+			<?=$_SESSION['notification']['message']?>
+			<?php $this->clearNotification()?>
+		</div>
+
+		<?php endif ?>
+
 		<input type="submit" class="btn" style="font-size: 100%;" value="Kirjaudu">
 	</form>
 </div>

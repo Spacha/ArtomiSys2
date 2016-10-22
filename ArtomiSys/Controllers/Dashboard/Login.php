@@ -16,13 +16,15 @@ class Login extends Dashboard
 		// login is not required on login page (obviously)
 		// note that we don't use default template!
 		$this->requireLogin = false;
-		parent::__construct('login');	
+		parent::__construct('login', true);
 	}
 
 	public function login($run = false)
 	{
 		if ($run) {
 			// try logging in
+
+
 			$username = htmlspecialchars($_POST['username']);
 			$password = htmlspecialchars($_POST['password']);
 
@@ -30,13 +32,13 @@ class Login extends Dashboard
 				header('location: '. ROOT_DIR .'/dashboard');
 				return true;
 			} else {
+				$this->view->setNotification('Virheellinen käyttäjätunnus tai salasana!', 'error');
 				header('location: '. ROOT_DIR .'/dashboard/login');
 				return false;
 			}
 		} else {
 			if (isset($_SESSION['loggedin'])) {
 				$this->model->logout();
-				header('location: '. ROOT_DIR .'/dashboard/login');
 			}
 
 			// show login form

@@ -36,7 +36,7 @@ spl_autoload_register(function($className) {
 ************************/
 
 
-set_exception_handler(function(Throwable $e) {
+set_exception_handler(function($e) {
 
     $message = !empty($e->getMessage()) ? $e->getMessage() : '';
     $code = !empty($e->getCode()) ? $e->getCode() : 0;
